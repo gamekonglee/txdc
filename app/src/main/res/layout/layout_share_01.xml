@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/iv_share_01"
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:src="@mipmap/bg_default"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="20dp"
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:text="规格："
+        android:layout_marginLeft="15dp"
+        android:textColor="#333333"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <GridView
+        android:id="@+id/ll_attr"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp">
+
+    </GridView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="187dp"
+        android:background="@drawable/bg_efefef_empty_corner_5"
+        android:layout_margin="15dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv_code"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                />
+            <TextView
+                android:text="(扫一扫，更多详情)"
+                android:textSize="12sp"
+                android:textColor="#333333"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/iv_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/lv_paramter"
+            android:layout_margin="15dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:divider="@null"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

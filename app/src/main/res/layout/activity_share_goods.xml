@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#efefef"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<View
+    android:background="@drawable/bg_frag_top"
+    android:layout_width="match_parent"
+    android:layout_height="15dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_frag_top">
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="goBack">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:background="@mipmap/fh"
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+        </RelativeLayout>
+        <TextView
+            android:text="图片下载"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_share_01"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="详细"
+            android:textColor="@color/theme_red"
+            android:textSize="12sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/bg_red_light_red_corner_15"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_share_02"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="图+二维码"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/bg_efefef_corner_15"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_share_03"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="二维码"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/bg_efefef_corner_15"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_share_04"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="无底高清"
+            android:textColor="#333333"
+            android:textSize="12sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/bg_efefef_corner_15"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_share_current"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_corner_white_15"
+        android:layout_margin="15dp"
+        android:padding="5dp"
+        android:orientation="vertical">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_share"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.viewpager.widget.ViewPager>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_share"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:text="保存并分享"
+        android:background="@drawable/bg_corner_full_orange_red_25"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</LinearLayout>

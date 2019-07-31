@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="161dp"
+    android:background="@drawable/bg_line_efefef"
+    android:paddingBottom="5dp"
+    android:layout_height="250dp">
+    <ImageView
+        android:id="@+id/iv_img"
+        android:background="@drawable/bg_default"
+        android:layout_width="160dp"
+        android:layout_height="160dp" />
+    <TextView
+        android:id="@+id/tv_name"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_margin="10dp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_price"
+            android:textColor="@color/theme_red"
+            android:textSize="12sp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_sold"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>

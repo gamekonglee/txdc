@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="311dp"
+    android:background="#ffffff"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <bc.yxdc.com.view.TextViewPlus
+            android:text="现货专区"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:drawablePadding="8.5dp"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/bg_tv_ff8600"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_xianhuo_all"
+            android:text="全部"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:drawableRight="@mipmap/arrow_icon"
+            android:drawablePadding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <HorizontalScrollView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp">
+        <LinearLayout
+            android:id="@+id/ll_xianhuo"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextureView
+        android:id="@+id/textureView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#333333"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_change"
+            android:text="前/后置换"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:drawableTop="@mipmap/icon_qhzh"
+            android:drawablePadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/iv_take"
+            android:src="@mipmap/icon_photograph"
+            android:layout_marginRight="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/iv_photo"
+            android:drawableTop="@mipmap/icon_picture"
+            android:drawablePadding="10dp"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:text="相册"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

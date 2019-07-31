@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:onClick="goBack">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:background="@mipmap/nav_left"
+            android:layout_width="10dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+    <TextView
+        android:text="个人资料"
+        android:textSize="18sp"
+        android:textColor="#555555"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:id="@+id/rl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:text="头像"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/iv_head"
+            android:background="@mipmap/login"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:id="@+id/rl_nickname"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:text="昵称"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_nickname"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <RelativeLayout
+        android:id="@+id/rl_sex"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:text="性别"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_sex"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <RelativeLayout
+        android:id="@+id/rl_birthday"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:text="生日"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_birthday"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rL_mobile"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:text="手机号"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_mobile"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:id="@+id/rl_changepwd"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <TextView
+            android:text="修改密码"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:drawablePadding="10dp"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/arrow_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</LinearLayout>

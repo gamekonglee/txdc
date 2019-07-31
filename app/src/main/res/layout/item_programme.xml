@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal">
+    <bc.yxdc.com.view.CircleImageView
+        android:id="@+id/iv_img"
+        android:src="@mipmap/bg_default"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_name"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_author"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_time"
+            android:text=""
+            android:textSize="12sp"
+            android:layout_marginTop="2dp"
+            android:textColor="#666666"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_edit"
+        android:layout_marginRight="15dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="11dp"
+            android:background="@mipmap/designarrow"
+            android:layout_height="6dp" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_path"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="240dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#efefef"
+        android:layout_height="105dp">
+        <ImageView
+            android:id="@+id/iv_goods"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_width="75dp"
+            android:background="#ffffff"
+            android:layout_height="75dp" />
+        <LinearLayout
+            android:layout_toRightOf="@+id/iv_goods"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_goods_name"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_goods_style"
+                android:textColor="#333333"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:textColor="@color/theme_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <bc.yxdc.com.view.TextViewPlus
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:gravity="center|left"
+            android:drawablePadding="5dp"
+            android:paddingLeft="40dp"
+            android:drawableLeft="@mipmap/praise_icon_default"
+            android:text="0"
+            android:visibility="invisible"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:drawableLeft="@mipmap/message_icon_default"
+            android:text="0"
+            android:gravity="center|left"
+            android:drawablePadding="5dp"
+            android:paddingLeft="40dp"
+            android:layout_width="0dp"
+            android:visibility="invisible"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_share"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:gravity="center|left"
+            android:drawablePadding="5dp"
+            android:paddingLeft="40dp"
+            android:drawableLeft="@mipmap/share_icon_default"
+            android:text=""
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

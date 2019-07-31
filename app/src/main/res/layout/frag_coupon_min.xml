@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#efefef"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_never_use"
+            android:textSize="15sp"
+            android:textColor="@color/theme_red"
+            android:text="未使用"
+            android:gravity="center"
+            android:drawableBottom="@drawable/bg_line"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_has_use"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:text="已使用"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_has_pass"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:text="已过期"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <ListView
+        android:id="@+id/lv_mine_coupons"
+        android:divider="#efefef"
+        android:dividerHeight="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

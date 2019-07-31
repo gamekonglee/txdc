@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="goBack">
+            <ImageView
+                android:background="@mipmap/nav_left"
+                android:layout_centerInParent="true"
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+        </RelativeLayout>
+        <TextView
+            android:text="尾货特卖"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <include android:id="@+id/layout_empty"
+        android:visibility="gone"
+        layout="@layout/empty_no_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:background="@mipmap/banner_weihuo"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+            <GridView
+                android:background="#efefef"
+                android:id="@+id/gv_weihuo_goods"
+                android:numColumns="2"
+                android:padding="10dp"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

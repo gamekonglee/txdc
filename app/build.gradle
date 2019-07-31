@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
+
+
+android {
+//    configurations {
+//        all*.exclude group: 'com.nineoldandroids', module: 'library' //去除重复依赖库
+//    }
+    signingConfigs {
+        config {
+            keyAlias 'juhao'
+            keyPassword '123456'
+
+            storeFile file('/Users/gamekonglee/Downloads/juhao_git/ilopjuhaoapp/juhao.jks')
+            storePassword '123456'
+        }
+        release{
+            keyAlias 'juhao'
+            keyPassword '123456'
+            storeFile file('/Users/gamekonglee/Downloads/juhao_git/ilopjuhaoapp/juhao.jks')
+            storePassword '123456'
+        }
+        debug{
+            keyAlias 'juhao'
+            keyPassword '123456'
+            storeFile file('/Users/gamekonglee/Downloads/juhao_git/ilopjuhaoapp/juhao.jks')
+            storePassword '123456'
+        }
+    }
+    greendao {
+        schemaVersion 2  //版本
+        daoPackage 'bc.yxdc.com.db'
+        targetGenDir 'src/main/java' //生成文件路径
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId 'app.txdc.shop'
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 8
+        versionName "1.0.7"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        compileOptions {
+
+            sourceCompatibility JavaVersion.VERSION_1_8
+
+            targetCompatibility JavaVersion.VERSION_1_8
+
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "1ff7f6ae96f0ca85f1c4e01b", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
+    }
+//    signingConfig{
+//
+//    }
+    dataBinding {
+        enabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = []
+        }
+    }
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+    buildToolsVersion '29.0.0'
+    productFlavors {
+    }
+}
+repositories {
+    jcenter()
+    google()
+
+    flatDir {
+        dirs 'libs'
+    }
+    mavenLocal()
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    //    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    //    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    //    implementation 'com.bigkoo:ConvenientBanner:2.1.4'
+    implementation('com.bigkoo:convenientbanner:1.1.4') {
+        exclude group: 'com.android.support'
+        exclude group: 'com.nineoldandroids:library'
+    }
+    implementation('com.google.zxing:core:3.2.0') { exclude group: 'com.nineoldandroids:library' }
+    //    implementation 'com.android.support:appcompat-v7:28.0.0-rc01'
+    implementation files('libs/fastjson-1.2.2.jar')
+    //    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation files('libs/open_sdk_r5990_lite.jar')
+    implementation('com.bigkoo:alertview:1.0.3') {
+        exclude group: 'com.android.support'
+        exclude group: 'com.nineoldandroids:library'
+    }
+    implementation('com.github.donkingliang:ImageSelector:1.6.0') {
+        exclude group: 'com.android.support'
+        exclude group: 'com.nineoldandroids:library'
+    }
+    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
+    //    implementation files('libs/universalimageloader.jar')
+    implementation 'org.greenrobot:greendao:3.2.2'
+    // add library
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
+    implementation files('libs/xstream-1.4.7.jar')
+    implementation 'com.google.code.gson:gson:2.2.4'
+    implementation 'com.pgyersdk:sdk:2.8.0'
+    implementation project(':common')
+    implementation project(':swipelistviewlibrary')
+    implementation files('libs/MobCommons-2016.1201.1839.jar')
+    implementation files('libs/MobTools-2016.1201.1839.jar')
+    implementation(name: 'SMSSDK-2.1.3', ext: 'aar')
+    implementation(name: 'AkHttp', ext: 'aar')
+    implementation('com.squareup.retrofit2:retrofit:2.0.0-beta3') {
+        exclude group: 'com.nineoldandroids:library'
+    }
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation('cn.qqtheme.framework:WheelPicker:latest.release') {
+        exclude group: 'com.android.support'
+        exclude group: 'com.nineoldandroids:library'
+    }
+    implementation('com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+') {
+        exclude group: 'com.nineoldandroids:library'
+    }
+    //    implementation files('libs/alipaySdk-20180601.jar')
+    implementation(name: 'alipaySdk-15.5.9-20181123210657-noUtdid', ext: 'aar')
+    implementation 'cn.jiguang.sdk:jpush:3.1.6'
+    // 此处以JPush 3.1.6 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.2.5'
+    // 此处以JCore 1.2.5 版本为例。
+    //    implementation  'com.nineoldandroids:library:2.4.0'
+    //    implementation files('libs/open_sdk_r6019_lite.jar')
+    implementation files('libs/imageloader.jar')
+    compile 'com.umeng.umsdk:analytics:8.0.0'
+    compile 'com.umeng.umsdk:common:2.0.0'
+    implementation project(path: ':m7app')
+    implementation project(path: ':addressApp')
+//    implementation files('libs/IMKFSDK-3.2.3.jar')
+}
+//configurations.all {
+//    resolutionStrategy {
+//        force 'com.android.support:support-v4:27.0.2'
+//    }
+//}
+

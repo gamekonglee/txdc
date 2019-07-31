@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="goBack">
+            <ImageView
+                android:background="@mipmap/nav_left"
+                android:layout_centerInParent="true"
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+        </RelativeLayout>
+        <TextView
+            android:text="评价"
+            android:textColor="#555555"
+            android:textSize="18sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+<ScrollView
+    android:layout_marginTop="45dp"
+    android:layout_marginBottom="60dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+    <View
+        android:background="#1a000000"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="65dp">
+        <ImageView
+            android:id="@+id/iv_goods_img"
+            android:background="@mipmap/bg_default"
+            android:layout_width="65dp"
+            android:layout_height="65dp" />
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_toRightOf="@+id/iv_goods_img"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="评价："
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.ui.view.RatingBar
+            android:id="@+id/rb_goods_score"
+            android:layout_toRightOf="@+id/iv_goods_img"
+            android:layout_below="@+id/tv_comment"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            style="@style/fiveRatingBar"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="5"
+            app:starCount="5"
+            app:starEmpty="@mipmap/page_icon_star_default"
+            app:starFill="@mipmap/page_icon_star_selected"
+            app:starHalf="@mipmap/page_icon_star_default"
+            app:starImageSize="15dp"
+            app:starPadding="5dp"
+            app:starStep="5"
+            app:stepSize="Half"
+        />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"/>
+    <EditText
+        android:id="@+id/et_comment"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        android:hint="说说您的购买心得，分享给想买的他们吧！"
+        android:gravity="top"
+        android:padding="5dp"
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="75dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:orientation="horizontal">
+        <GridView
+            android:id="@+id/gv_img"
+            android:layout_gravity="center"
+            android:numColumns="4"
+            android:horizontalSpacing="5dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+
+    <View
+        android:background="#efefef"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <CheckBox
+        android:text="     匿名评价"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/cb_unknow"
+        android:textColor="#333333"
+        android:textSize="12sp"
+        android:button="@drawable/cb_type_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:text="服务评分"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginRight="15dp"
+            android:text="满意给5星哦"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:text="商品包装"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.ui.view.RatingBar android:id="@+id/rb_goods_rank"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            style="@style/fiveRatingBar"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="0"
+            app:starCount="5"
+            app:starEmpty="@mipmap/page_icon_star_default"
+            app:starFill="@mipmap/page_icon_star_selected"
+            app:starHalf="@mipmap/page_icon_star_default"
+            app:starImageSize="15dp"
+            app:starPadding="5dp"
+            app:starStep="0"
+            app:stepSize="Half"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:text="发货速度"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.ui.view.RatingBar android:id="@+id/rb_express"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            style="@style/fiveRatingBar"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="0"
+            app:starCount="5"
+            app:starEmpty="@mipmap/page_icon_star_default"
+            app:starFill="@mipmap/page_icon_star_selected"
+            app:starHalf="@mipmap/page_icon_star_default"
+            app:starImageSize="15dp"
+            app:starPadding="5dp"
+            app:starStep="0"
+            app:stepSize="Half"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:text="配送员服务态度"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.ui.view.RatingBar android:id="@+id/rb_attitude"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            style="@style/fiveRatingBar"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="0"
+            app:starCount="5"
+            app:starEmpty="@mipmap/page_icon_star_default"
+            app:starFill="@mipmap/page_icon_star_selected"
+            app:starHalf="@mipmap/page_icon_star_default"
+            app:starImageSize="15dp"
+            app:starPadding="5dp"
+            app:starStep="0"
+            app:stepSize="Half"/>
+    </RelativeLayout>
+
+</LinearLayout>
+</ScrollView>
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_gravity="bottom"
+        android:textColor="#ffffff"
+        android:text="提交"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_corner_full_orange_red_25"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+</FrameLayout>

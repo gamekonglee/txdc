@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="bc.yxdc.com.ui.activity.home.MainActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+    <bc.yxdc.com.view.TextViewPlus
+        android:id="@+id/tv_tab_home"
+        style="@style/home_tab"
+        android:text="首页"
+        android:textColor="@color/theme_red"
+        android:drawableTop="@mipmap/tab_icon_home_selected"
+        />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_tab_classify"
+            style="@style/home_tab"
+            android:text="产品"
+            android:drawableTop="@mipmap/tab_icon_classification_default"
+            />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_tab_palette"
+            style="@style/home_tab"
+            android:text="设计大师"
+            android:drawableTop="@mipmap/tab_design_default"
+            />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <bc.yxdc.com.view.TextViewPlus
+                android:id="@+id/tv_tab_shopping"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/home_tab"
+                android:text="购物车"
+                android:drawableTop="@mipmap/tab_icon_shop_default"
+                />
+            <TextView
+                android:id="@+id/unMessageReadTv"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/bg_unread_count_red"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:visibility="invisible"
+                />
+
+        </RelativeLayout>
+
+
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_tab_me"
+            style="@style/home_tab"
+            android:drawableTop="@mipmap/tab_icon_me_default"
+            android:text="我的" />
+    </LinearLayout>
+
+
+</LinearLayout>

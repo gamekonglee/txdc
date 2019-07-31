@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bg_corner_white_15"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="150dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_message"
+            android:textColor="#333333"
+            android:textSize="15sp"
+            android:text="订单"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_time"
+            android:text="2018.01.01"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#f9f8f8">
+        <ImageView
+            android:id="@+id/iv_img"
+            android:background="@mipmap/bg_default"
+            android:layout_width="90dp"
+            android:layout_height="90dp" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_toRightOf="@+id/iv_img"
+            android:layout_margin="10dp"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:lineSpacingExtra="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_order"
+            android:layout_toRightOf="@+id/iv_img"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

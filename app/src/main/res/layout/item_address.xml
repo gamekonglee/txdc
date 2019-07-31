@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="15dp"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_consginer"
+        android:text="name"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_mobile"
+        android:text="164244522123"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/tv_consginer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_address"
+        android:text="address"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:lineSpacingExtra="5dp"
+        android:lines="2"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_default"
+            android:text="默认地址"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:drawableLeft="@mipmap/page_icon_round_default"
+            android:drawablePadding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_edit"
+            android:text="编辑"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:drawableLeft="@mipmap/page_edit"
+            android:drawablePadding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <bc.yxdc.com.view.TextViewPlus
+            android:id="@+id/tv_delete"
+            android:text="删除"
+            android:textSize="14sp"
+            android:layout_marginLeft="15dp"
+            android:textColor="#666666"
+            android:drawableLeft="@mipmap/page_del"
+            android:drawablePadding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

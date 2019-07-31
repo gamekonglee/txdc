@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <RelativeLayout
+            android:onClick="goBack"
+            android:layout_width="50dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:background="@mipmap/nav_left"
+                android:layout_centerInParent="true"
+                android:layout_width="10dp"
+                android:layout_height="20dp" />
+        </RelativeLayout>
+        <TextView
+            android:text="消息中心"
+            android:textColor="#555555"
+            android:textSize="18sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <View
+        android:background="#dddddd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <View
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_msg"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <bc.yxdc.com.view.TextViewPlus
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:text="消息提醒"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@mipmap/page_icon_message_default_msg"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:background="@mipmap/arrow_icon"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp" />
+        <View
+            android:background="#efefef"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_activity"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <bc.yxdc.com.view.TextViewPlus
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:text="优惠促销"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@mipmap/page_icon_activity_default_msg"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:background="@mipmap/arrow_icon"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp" />
+        <View
+            android:background="#efefef"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_logistics"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <bc.yxdc.com.view.TextViewPlus
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:text="物流信息"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:drawableLeft="@mipmap/page_icon_logistics_default_msg"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:background="@mipmap/arrow_icon"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_width="5.5dp"
+            android:layout_height="10dp" />
+        <View
+            android:background="#efefef"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+</LinearLayout>
