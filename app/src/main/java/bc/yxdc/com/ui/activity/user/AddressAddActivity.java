@@ -208,6 +208,8 @@ public class AddressAddActivity extends BaseActivity {
                     finish();
                     return;
                 }
+
+                mobile=mobile.trim();
                 if(is_edit){
                     try {
                         mAddressBean.setProvince(Integer.parseInt(mProvince));

@@ -261,7 +261,7 @@ public class MineMainFragment extends Fragment implements View.OnClickListener {
         rl_collect.setOnClickListener(this);
     }
 
-    @OnClick({R.id.rl_top_mine,R.id.tv_wait_pay,R.id.tv_wait_receive,R.id.tv_wait_send,R.id.tv_has_complete,R.id.rl_message})
+    @OnClick({R.id.rl_top_mine,R.id.tv_wait_pay,R.id.tv_wait_receive,R.id.tv_wait_send,R.id.tv_has_complete,R.id.rl_message,R.id.rl_share,R.id.rl_zhangdan})
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -311,6 +311,12 @@ public class MineMainFragment extends Fragment implements View.OnClickListener {
             case R.id.rl_message:
                 intent=new Intent(getActivity(), MessageHomeActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.rl_share:
+                UIUtils.showShareLinkDialog(getActivity(),NetWorkConst.SHARE_APK_URL);
+                break;
+            case R.id.rl_zhangdan:
+
                 break;
 
         }

@@ -734,7 +734,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                                     TextView tv_price=view.findViewById(R.id.tv_price);
                                     TextView tv_sold=view.findViewById(R.id.tv_sold);
                                     tv_name.setText(newGoodsBeans.get(i).getGoods_name());
-                                    tv_price.setText("¥"+newGoodsBeans.get(i).getShop_price());
+                                    tv_price.setText("¥"+(int)Float.parseFloat(newGoodsBeans.get(i).getShop_price()));
                                     tv_sold.setText("已售"+newGoodsBeans.get(i).getSales_sum()+"件");
                                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+newGoodsBeans.get(i).getGoods_id(),iv_img,IssApplication.getImageLoaderOption());
                                     LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(width,height);

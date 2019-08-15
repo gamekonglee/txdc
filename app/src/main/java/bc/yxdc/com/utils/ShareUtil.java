@@ -34,15 +34,15 @@ public class ShareUtil {
     /**
      * 分享操作
      */
-    public  static void shareWx(final Activity activity, String title, final String path, final String imagePath){
+    public  static void shareWx(final Activity activity, String title, final String path){
         IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
         WXWebpageObject wxWebpageObject=new WXWebpageObject();
         wxWebpageObject.webpageUrl=path;
         WXMediaMessage wxMediaMessage=new WXMediaMessage(wxWebpageObject);
         wxMediaMessage.title=title;
 
-        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher);
-        wxMediaMessage.thumbData=ImageUtil.getBitmapByte(thumb);
+        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
+        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(thumb,100,100),32);
         SendMessageToWX.Req req=new SendMessageToWX.Req();
         req.transaction="urlpage";
         req.message=wxMediaMessage;
@@ -55,7 +55,7 @@ public class ShareUtil {
      */
     public  static void shareWxPic(final Activity activity, String title,Bitmap bitmap,boolean isSession){
         IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
-//        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(),R.mipmap.ic_launcher);
+//        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(),R.mipmap.logo);
         WXImageObject wxImageObject=new WXImageObject(bitmap);
         WXMediaMessage wxMediaMessage=new WXMediaMessage();
         wxMediaMessage.mediaObject=wxImageObject;
@@ -75,7 +75,7 @@ public class ShareUtil {
      */
     public  static void shareWxFile(final Activity activity, String title,String imgpath ,boolean isSession){
         IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
-        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher);
+        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
         WXFileObject wxImageObject=new WXFileObject();
         wxImageObject.setFilePath(imgpath);
         WXMediaMessage wxMediaMessage=new WXMediaMessage();
@@ -95,14 +95,14 @@ public class ShareUtil {
         req.scene=isSession?SendMessageToWX.Req.WXSceneSession:SendMessageToWX.Req.WXSceneTimeline;
         api.sendReq(req);
     }
-    public static void sharePyq(FragmentActivity activity, String title, String path, String shareimage) {
+    public static void sharePyq(Activity activity, String title, String path) {
         IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
         WXWebpageObject wxWebpageObject=new WXWebpageObject();
         wxWebpageObject.webpageUrl=path;
         WXMediaMessage wxMediaMessage=new WXMediaMessage(wxWebpageObject);
         wxMediaMessage.title=title;
-        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher);
-        wxMediaMessage.thumbData=ImageUtil.getBitmapByte(thumb);
+        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
+        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(thumb,100,100),32);
         SendMessageToWX.Req req=new SendMessageToWX.Req();
         req.transaction="urlpage";
         req.message=wxMediaMessage;
@@ -116,7 +116,7 @@ public class ShareUtil {
         WXMediaMessage mediaMessage=new WXMediaMessage(videoObject);
         mediaMessage.title=title;
         mediaMessage.description="来自"+ activity.getResources().getString(R.string.app_name)+"的分享";
-        Bitmap bitmap=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.ic_launcher);
+        Bitmap bitmap=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
         mediaMessage.thumbData=ImageUtil.getBitmapByte(bitmap);
         SendMessageToWX.Req req=new SendMessageToWX.Req();
         req.message=mediaMessage;
@@ -144,7 +144,7 @@ public class ShareUtil {
 ////        oks.disableSSOWhenAuthorize();
 ////
 ////        // 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
-////        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+////        //oks.setNotification(R.drawable.logo, getString(R.string.app_name));
 ////        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
 ////        oks.setTitle(title);
 ////        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
@@ -386,7 +386,7 @@ public class ShareUtil {
 ////        oks.disableSSOWhenAuthorize();
 ////
 ////        // 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
-////        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+////        //oks.setNotification(R.drawable.logo, getString(R.string.app_name));
 ////        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
 ////        oks.setTitle(title);
 ////        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
@@ -470,7 +470,7 @@ public class ShareUtil {
 //    }
 
 
-    public static void shareQQ(FragmentActivity activity, String title, String apkUrl, String shareimage) {
+    public static void shareQQ(Activity activity, String title, String apkUrl, String shareimage) {
         Tencent mTencent= Tencent.createInstance(Constance.QQ_APP_ID,activity);
         final Bundle params = new Bundle();
         params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);

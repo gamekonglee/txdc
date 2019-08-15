@@ -75,10 +75,15 @@ public class IssApplication extends Application{
          * UMConfigure.init调用中appkey和channel参数请置为null）。
          */
 //        IMChatManager.getInstance().init(this,);
+        try {
         UMConfigure.init(this, "5cf87757570df36b5e00090f", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+
         MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
         // 支持在子进程中统计自定义事件
         UMConfigure.setProcessEvent(true);
+        }catch (Exception e){
+        }
+
 //        IMChatManager.getInstance().init(getApplicationContext(),
 //                "receiverAction",
 //                "6f555230-9f0b-11e9-a2f8-cb23e96e098b",

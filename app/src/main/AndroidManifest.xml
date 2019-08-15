@@ -64,6 +64,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:theme="@style/AppTheme">
         <meta-data android:value="5cf87757570df36b5e00090f" android:name="UMENG_APPKEY"/>

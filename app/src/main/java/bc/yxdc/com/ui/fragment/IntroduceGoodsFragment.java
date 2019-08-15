@@ -71,6 +71,7 @@ import bc.yxdc.com.net.OkHttpUtils;
 import bc.yxdc.com.ui.activity.diy.DiyActivity;
 import bc.yxdc.com.ui.activity.goods.ProDetailActivity;
 import bc.yxdc.com.ui.activity.user.LoginActivity;
+import bc.yxdc.com.ui.view.AutoLinefeedLayout;
 import bc.yxdc.com.utils.AppUtils;
 import bc.yxdc.com.utils.LogUtils;
 import bc.yxdc.com.utils.MyShare;
@@ -741,6 +742,7 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
             MyToast.show(getActivity(),"数据加载中，请稍等");
             return;
         }
+//        String[] propertyArray = new String[goods_spec_lists.get().getSpec_list().size()];
         Dialog dialog=UIUtils.showBottomInDialog(getActivity(),R.layout.dialog_param);
         ListView lv_param=dialog.findViewById(R.id.lv_paramter);
         QuickAdapter<Goods_attr_list> adapter=new QuickAdapter<Goods_attr_list>(getActivity(),R.layout.item_params) {
@@ -776,7 +778,226 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
         final TextView tv_attr_tips=dialog.findViewById(R.id.tv_attr_tips);
         LinearLayout ll_buy=dialog.findViewById(R.id.ll_buy);
         Button btn_diy=dialog.findViewById(R.id.btn_diy);
-        ListView lv_attr=dialog.findViewById(R.id.lv_attr);
+        LinearLayout ll_skulist=dialog.findViewById(R.id.ll_skulist);
+//
+//        if (propertyList == null || propertyList.size() <= 0) {
+//            System.out.println("propertyList==null");
+//            TextView tv_auto = new TextView(getActivity());
+//            tv_auto.setText(goodsDetail.getProductInfo().getName());
+////                        tv_auto.setBackground(getDrawable(R.drawable.bg_corner_8c8e91));
+////                        tv_auto.setTextColor(getResources().getColor(R.color.tv_232326));
+//            tv_auto.setGravity(Gravity.CENTER);
+//            tv_auto.setEnabled(true);
+//            tv_auto.setPadding(UIUtils.dip2PX(8), UIUtils.dip2PX(8), UIUtils.dip2PX(8), UIUtils.dip2PX(8));
+//            tv_auto.setBackground(getResources().getDrawable(R.drawable.bg_corner_jd_red));
+//            tv_auto.setTextColor(getResources().getColor(R.color.jd_red));
+//            tv_auto.setEnabled(false);
+//            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//            layoutParams.setMargins(UIUtils.dip2PX(5), UIUtils.dip2PX(5), UIUtils.dip2PX(5), 0);
+//            layoutParams.gravity = Gravity.CENTER_VERTICAL;
+//            tv_auto.setLayoutParams(layoutParams);
+////                    tv_auto.setLetterSpacing(5);
+//            ll_skulist.addView(tv_auto);
+//            return;
+//        }
+        ll_skulist.removeAllViews();
+        final List<AutoLinefeedLayout> autoLinefeedLayouts = new ArrayList<>();
+        final List<List<TextView>> tvListList = new ArrayList<>();
+        List<LinearLayout> linearLayouts = new ArrayList<>();
+        for (int i = 0; i < goods_spec_lists.size(); i++) {
+            final AutoLinefeedLayout autoLinefeedLayout = new AutoLinefeedLayout(getActivity());
+            final LinearLayout linearLayout = new LinearLayout(getActivity());
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+            linearLayouts.add(linearLayout);
+            final TextView textView = new TextView(getActivity());
+            textView.setText(goods_spec_lists.get(i).getSpec_name());
+            textView.setTextColor(getResources().getColor(R.color.tv_333333));
+            LinearLayout.LayoutParams tvlayoutps = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            tvlayoutps.setMargins(UIUtils.dip2PX(10), UIUtils.dip2PX(15), 0, UIUtils.dip2PX(15));
+            textView.setLayoutParams(tvlayoutps);
+
+//                final GridView gridView=new GridView(getActivity());
+
+//                gridView.setNumColumns(2);
+            linearLayouts.get(i).removeAllViews();
+            linearLayouts.get(i).addView(textView);
+            final int finalI = i;
+            final int currentPosition = 0;
+            final List<TextView> tvList = new ArrayList<>();
+            for (int g = 0; g < goods_spec_lists.get(finalI).getSpec_list().size(); g++) {
+                final LinearLayout linearLayoutForTv = new LinearLayout(getActivity());
+                final TextView tv_auto = new TextView(getActivity());
+                tv_auto.setText(goods_spec_lists.get(finalI).getSpec_list().get(g).getItem());
+//                        tv_auto.setBackground(getDrawable(R.drawable.bg_corner_8c8e91));
+//                        tv_auto.setTextColor(getResources().getColor(R.color.tv_232326));
+                tv_auto.setGravity(Gravity.CENTER);
+                tv_auto.setSingleLine(true);
+                tv_auto.setEnabled(true);
+                tv_auto.setPadding(UIUtils.dip2PX(8), UIUtils.dip2PX(8), UIUtils.dip2PX(8), UIUtils.dip2PX(8));
+                final int finalY = g;
+                tv_auto.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        tvListList.get(finalI).get(finalY).setEnabled(false);
+                        for (int x = 0; x < tvListList.get(finalI).size(); x++) {
+                            if (x != finalY) {
+                                tvListList.get(finalI).get(x).setEnabled(true);
+                            }
+                            if (!tvListList.get(finalI).get(x).isEnabled()) {
+//                            currentPosition=y;
+//                            break;
+                                tvListList.get(finalI).get(x).setBackground(getResources().getDrawable(R.drawable.bg_attr_selected));
+                                tvListList.get(finalI).get(x).setTextColor(getResources().getColor(R.color.theme_red));
+                            } else {
+                                tvListList.get(finalI).get(x).setBackground(getResources().getDrawable(R.drawable.bg_attr_default));
+                                tvListList.get(finalI).get(x).setTextColor(getResources().getColor(R.color.tv_333333));
+                            }
+                        }
+                        List<Spec_list>spec_lists =goods_spec_lists.get(finalI).getSpec_list();
+                        goods_spec_lists.get(finalI).currentP=finalY;
+                        String url="";
+                        url=spec_lists.get(finalY).getSrc();
+                        if(url!=null&&!TextUtils.isEmpty(url)){
+                            ImageLoader.getInstance().displayImage(NetWorkConst.API_HOST+url,iv_img);
+                        }
+                        String str="";
+                        for(int j=0;j<goods_spec_lists.size();j++) {
+                            List<Spec_list> temp=goods_spec_lists.get(j).getSpec_list();
+                            for (int i = 0; i < temp.size(); i++) {
+                                if(goods_spec_lists.get(j).currentP==i){
+                                    str += temp.get(i).getItem();
+                                }
+                            }
+                        }
+                        tv_attr_tips.setText(str);
+                        mParamentTv.setText(str);
+                        String[] strKeys=new String[goods_spec_lists.size()];
+                        for(int i=0;i<goods_spec_lists.size();i++){
+                            List<Spec_list> temp=goods_spec_lists.get(i).getSpec_list();
+                            for(int j=0;j<temp.size();j++){
+                                if(j==goods_spec_lists.get(i).currentP){
+                                    strKeys[i]=temp.get(j).getItem_id()+"";
+                                }
+                            }
+                        }
+
+                        boolean isNotContain=true;
+                        for(int j=0;j<spec_goods_prices.size();j++){
+                            for(int i=0;i<strKeys.length;i++) {
+                                if (spec_goods_prices.get(j).getKey().contains(strKeys[i])) {
+                                    isNotContain=false;
+                                }else {
+                                    isNotContain=true;
+                                    break;
+                                }
+                            }
+                            if(!isNotContain){
+                                currentAttrPosi=j;
+                                break;
+                            }
+                        }
+
+
+                        proPriceTv.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
+                        tv_price.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
+                        warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();
+                        String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
+                        if (TextUtils.isEmpty(unit)||unit.equals("null")) {
+                            unit="个";
+                        }
+                        tv_num.setText(warn_number+"");
+                        tv_warn_number.setText("("+ warn_number +unit+"起订)");
+                        mProperty=spec_goods_prices.get(currentAttrPosi).getItem_id()+"";
+                        mPropertyName = spec_goods_prices.get(currentAttrPosi).getKey_name();
+                        getActivityInfo();
+
+                        tv_store_count.setText("工厂库存（"+spec_goods_prices.get(currentAttrPosi).getStore_count()+"）");
+                        tv_store_count_dialog.setText("库存："+spec_goods_prices.get(currentAttrPosi).getStore_count());
+
+//                        adapter.replaceAll(spec_lists);
+                        }
+//                        ApiClient.productDetail(pid, uid[0], new GklCallBack() {
+//                            @Override
+//                            public void response(Object response, int id) {
+//                                if (id == 0) {
+//                                    BaseBean baseBean = (BaseBean) response;
+//                                    if (baseBean.getCode().equals("100000")) {
+////                                                                           Toast.makeText(getActivity(), baseBean.getMessage(), Toast.LENGTH_SHORT).show();
+//                                        btn_dialog_add_to_sc.setText("该商品已下架");
+//                                        btn_dialog_add_to_sc.setBackgroundColor(getResources().getColor(R.color.btn_febe14));
+//                                        isUnderC = true;
+//                                    }
+//                                } else {
+//                                    isUnderC = false;
+//                                    btn_dialog_add_to_sc.setText("加入购物车");
+//                                    btn_dialog_add_to_sc.setBackgroundColor(getResources().getColor(R.color.jd_red));
+//
+//                                    goodsDetail = (GoodsDetail) response;
+//                                    imgList = goodsDetail.getProductImageList();
+//                                    productInfo = goodsDetail.getProductInfo();
+//                                    refreshUI();
+//                                    tv_dialog_price.setText("¥" + goodsDetail.getProductInfo().getShopPrice());
+//                                    tv_dialog_no.setText("商品编号：" + goodsDetail.getProductInfo().getPid());
+//                                    AppContext.getImageLoader().displayImage(urlBean.getStore() + imgList.get(0).getStoreId() + "/product/show/thumb350_350/" + imgList.get(0).getShowImg(), iv_dialog_goods);
+//                                }
+//                            }
+//                        });
+//                    }
+                });
+
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                layoutParams.setMargins(UIUtils.dip2PX(5), UIUtils.dip2PX(5), 0, 0);
+                tv_auto.setLayoutParams(layoutParams);
+//                if (propertyArray[finalI].equals(goods_spec_lists.get(finalI).getSpec_list().get(finalG).getItem())) {
+                if(finalY==0){
+//                            currentPosition=y;
+//                            break;
+                    tv_auto.setBackground(getResources().getDrawable(R.drawable.bg_attr_selected));
+                    tv_auto.setTextColor(getResources().getColor(R.color.theme_red));
+                    tv_auto.setEnabled(false);
+                } else {
+                    tv_auto.setBackground(getResources().getDrawable(R.drawable.bg_attr_default));
+                    tv_auto.setTextColor(getResources().getColor(R.color.tv_333333));
+                    tv_auto.setEnabled(true);
+                }
+                linearLayoutForTv.addView(tv_auto);
+                linearLayoutForTv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                autoLinefeedLayout.addView(linearLayoutForTv);
+                tvList.add(tv_auto);
+            }
+            autoLinefeedLayouts.add(autoLinefeedLayout);
+            linearLayouts.get(finalI).addView(autoLinefeedLayouts.get(finalI));
+            int total_width = 0;
+            int tv_heigt = 0;
+            tvListList.add(tvList);
+            for (int b = 0; b < tvListList.get(finalI).size(); b++) {
+                TextView view = tvListList.get(finalI).get(b);
+                total_width += view.getPaint().measureText(view.getText().toString());
+                view.measure(0, 0);
+                tv_heigt = view.getMeasuredHeight();
+                total_width += UIUtils.dip2PX(5);
+            }
+//                    System.out.println("total_width:"+total_width);
+//                    System.out.println("widthpx:"+getResources().getDisplayMetrics().widthPixels);
+//                    int row=total_width/getResources().getDisplayMetrics().widthPixels+1;
+//                    int column=gridView.getAdapter().getCount()/row;
+//                    gridView.setNumColumns(column);
+//                    LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, row*tv_heigt+(row-1)*UIUtils.dip2PX(5));
+//                    params.setMargins(UIUtils.dip2PX(10),0,UIUtils.dip2PX(15),0);
+//                    gridView.setLayoutParams(params);
+//                    gridView.setVerticalSpacing(UIUtils.dip2PX(5));
+
+//                    linearLayout.addView(gridView);
+//                    LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                    layoutParams.setMargins(0,5,0,0);
+//                    ll_skulist.addView(linearLayout);
+            LinearLayout.LayoutParams llps = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            ll_skulist.addView(linearLayouts.get(finalI), llps);
+//                    gridViewList.add(gridView);
+
+        }
+//        ListView lv_attr=dialog.findViewById(R.id.lv_attr);
         if(isDiy){
             ll_buy.setVisibility(View.GONE);
             btn_diy.setVisibility(View.VISIBLE);
@@ -828,11 +1049,42 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
                 }
             }
         }
+        String[] strKeys=new String[goods_spec_lists.size()];
+        for(int i=0;i<goods_spec_lists.size();i++){
+            List<Spec_list> temp=goods_spec_lists.get(i).getSpec_list();
+            for(int j=0;j<temp.size();j++){
+                if(j==goods_spec_lists.get(i).currentP){
+                    strKeys[i]=temp.get(j).getItem_id()+"";
+                }
+            }
+        }
+
+        boolean isNotContain=true;
+        for(int j=0;j<spec_goods_prices.size();j++){
+            for(int i=0;i<strKeys.length;i++) {
+                if (spec_goods_prices.get(j).getKey().contains(strKeys[i])) {
+                    isNotContain=false;
+                }else {
+                    isNotContain=true;
+                    break;
+                }
+            }
+            if(!isNotContain){
+                currentAttrPosi=j;
+                break;
+            }
+        }
 
 
-        tv_price.setText("¥"+spec_goods_prices.get(0).getPrice());
-        tv_store_count_dialog.setText("库存："+spec_goods_prices.get(0).getStore_count());
-        tv_warn_number.setText("("+spec_goods_prices.get(0).getWarn_number()+spec_goods_prices.get(0).getUnit()+"起订)");
+        tv_price.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
+        tv_store_count_dialog.setText("库存："+spec_goods_prices.get(currentAttrPosi).getStore_count());
+        String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
+        warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();
+        if (TextUtils.isEmpty(unit)||unit.equals("null")) {
+            unit="个";
+        }
+        tv_warn_number.setText("("+warn_number+unit+"起订)");
+        tv_num.setText(warn_number+"");
         iv_dismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -942,13 +1194,11 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
                                        break;
                                    }
                                }
-
-
                         proPriceTv.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
                         tv_price.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
                         warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();
                         String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
-                        if (TextUtils.isEmpty(unit)) {
+                        if (TextUtils.isEmpty(unit)||unit.equals("null")) {
                             unit="个";
                         }
                         tv_num.setText(warn_number+"");
@@ -972,7 +1222,7 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
 
             }
         };
-        lv_attr.setAdapter(goods_spec_listQuickAdapter);
+//        lv_attr.setAdapter(goods_spec_listQuickAdapter);
         goods_spec_listQuickAdapter.replaceAll(goods_spec_lists);
 //        UIUtils.initListViewHeight(lv_attr);
 //        gv_attr.performItemClick(null,currentAttrPosi,0);

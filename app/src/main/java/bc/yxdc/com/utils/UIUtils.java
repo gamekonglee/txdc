@@ -629,6 +629,54 @@ public static int measureListViewHeight(final AbsListView listView) {
         });
     }
 
+    public static void showShareLinkDialog(final Activity activity, final String path) {
+        final String title = "来自 " + UIUtils.getString(R.string.app_name) + " App的分享";
+        final Dialog dialog=UIUtils.showBottomInDialog(activity, R.layout.share_dialog,UIUtils.dip2PX(205));
+        TextView tv_cancel=dialog.findViewById(R.id.tv_cancel);
+        LinearLayout ll_wx=dialog.findViewById(R.id.ll_wx);
+        LinearLayout ll_pyq=dialog.findViewById(R.id.ll_pyq);
+        LinearLayout ll_qq=dialog.findViewById(R.id.ll_qq);
+        LinearLayout ll_link=dialog.findViewById(R.id.ll_link);
+        tv_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        ll_wx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareUtil.shareWx(activity,title,path);
+                dialog.dismiss();
+            }
+        });
+        ll_pyq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareUtil.sharePyq(activity,title,path);
+                dialog.dismiss();
+            }
+        });
+        ll_qq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareUtil.shareQQ(activity ,title,path,"");
+                dialog.dismiss();
+            }
+        });
+        ll_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager cm = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
+                // 将文本内容放到系统剪贴板里。
+                cm.setText(path);
+                MyToast.show(activity,"链接复制成功！");
+                dialog.dismiss();
+            }
+        });
+    }
+
+
     public static Bitmap converBitmap(Bitmap bmp) {
             int w = bmp.getWidth();
             int h = bmp.getHeight();

@@ -157,4 +157,8 @@
                 <enum name="Full" value="1" />
             </attr>
         </declare-styleable>
+    <declare-styleable name="SlideGroup">
+
+        <attr name="layout_gravity" />
+    </declare-styleable>
 </resources>

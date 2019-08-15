@@ -10,7 +10,7 @@ public class NetWorkConst {
     public static final String API_HOST_2="http://www.tianxiadengcang.com/";
     public static final String IMAGE_URL = API_HOST + "/index.php?m=Api&c=Goods&a=goodsThumImages&width=200&height=200&goods_id=";
     public static final String APK_NAME = "txdc_v1";
-    public static final String DOWN_APK_URL = "";
+    public static final String DOWN_APK_URL = "http://app.08138.com/txdc.apk";
     public static final String PRODUCT = "PRODUCT";
     public static final String URL_PRODUCT = API_HOST+"/index.php?m=Api&c=Goods&a=goodsList";
     public static final String URL_CLASSIFY = API_HOST+"/index.php?m=Api&c=Goods&a=goodsCategoryList";
@@ -84,4 +84,5 @@ public class NetWorkConst {
     public static final String SHAREIMAGE_LOGO = API_HOST + "logo.png";
     public static final String URL_PRODUCT_ACTIVTY = API_HOST + "/index.php?m=Api&c=Goods&a=goods_activity";
     public static final String URL_WX_USER_INFO = "https://api.weixin.qq.com/sns/userinfo?";
+    public static final String SHARE_APK_URL = "https://sj.qq.com/myapp/detail.htm?apkName=app.txdc.shop";
 }
