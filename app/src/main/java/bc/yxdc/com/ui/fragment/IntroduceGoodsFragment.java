@@ -439,6 +439,9 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
         spec_goods_prices = new ArrayList<>();
         mProductionObject = new Gson().fromJson(res.toString(),Goods.class);
         mCurrentPrice = mProductionObject.getShop_price();
+        if(IssApplication.isShowDiscount){
+        mCurrentPrice=mProductionObject.getCost_price();
+        }
         proPriceTv.setText("￥" + mCurrentPrice);
         Activity activityInfo=ProDetailActivity.goods.getActivity();
         if(spec_goods_array!=null&&spec_goods_array.length()>0){

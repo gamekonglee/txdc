@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.pgyersdk.crash.PgyCrashManager;
 
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
@@ -23,12 +24,14 @@ import bc.yxdc.com.global.IssApplication;
 import bc.yxdc.com.utils.LogUtils;
 import bocang.json.JSONArray;
 import bocang.json.JSONObject;
+import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by gamekonglee on 2018/9/12.
@@ -421,13 +424,26 @@ public class OkHttpUtils  {
         okHttpClient.newCall(request).enqueue(callback);
     }
 
-    public static void getRegion(String s, Callback callback) {
+    public static void getRegion(String s, Callback callback)  {
+
         OkHttpClient okHttpClient=getOkHttpInstance();
         String url=NetWorkConst.URL_GET_REGION+s;
         Request request=new Request.Builder().get().url(url).build();
         okHttpClient.newCall(request).enqueue(callback);
     }
+    public static Response getRegionSync(String s)  {
 
+        OkHttpClient okHttpClient=getOkHttpInstance();
+        String url=NetWorkConst.URL_GET_REGION+s;
+        Request request=new Request.Builder().get().url(url).build();
+        Call call=okHttpClient.newCall(request);
+        try {
+            return call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static void deleteAddress(String user_id, String token, int mCurrentId, Callback callback) {
         OkHttpClient okHttpClient=getOkHttpInstance();
         RequestBody requestBody= new FormBody.Builder()
@@ -779,5 +795,20 @@ public class OkHttpUtils  {
         String url=NetWorkConst.URL_WX_USER_INFO+"&access_token="+access_token+"&openid="+openid;
         Request request=new Request.Builder().get().url(url).build();
         okHttpClient.newCall(request).enqueue(callback);
+    }
+    public static void sendDealer(String name ,String phone,String province,String city,String zone,String address,String remark,Callback callback){
+        OkHttpClient okHttpClient=getOkHttpInstance();
+        String url=NetWorkConst.URL_DISTRUBUTOR;
+        RequestBody requestBody=new FormBody.Builder()
+                .add("name",name)
+                .add("phone",phone)
+                .add("province",province)
+                .add("city",city)
+                .add("district",zone)
+                .add("address",address)
+                .add("remark",remark).build();
+        Request request=new Request.Builder().post(requestBody).url(url).build();
+        okHttpClient.newCall(request).enqueue(callback);
+
     }
 }

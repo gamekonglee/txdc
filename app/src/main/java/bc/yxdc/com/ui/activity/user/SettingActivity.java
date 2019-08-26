@@ -2,11 +2,15 @@ package bc.yxdc.com.ui.activity.user;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import app.txdc.shop.R;
 import bc.yxdc.com.base.BaseActivity;
+import bc.yxdc.com.bean.User;
 import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.global.IssApplication;
 import bc.yxdc.com.ui.activity.home.MainActivity;
@@ -15,6 +19,7 @@ import bc.yxdc.com.utils.MyToast;
 import bc.yxdc.com.utils.UIUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Callback;
 
 /**
@@ -32,6 +37,11 @@ public class SettingActivity extends BaseActivity{
     Button btn_logout;
     @BindView(R.id.tv_version)
     TextView tv_version;
+    @BindView(R.id.iv_show_discount)
+    ImageView iv_show_discount;
+    @BindView(R.id.ll_show_discount)
+    View ll_show_discount;
+    private boolean isShowDiscount;
 
     @Override
     protected void initData() {
@@ -47,8 +57,21 @@ public class SettingActivity extends BaseActivity{
         ll_permission.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
         tv_version.setText("当前版本号："+UIUtils.getVerName(this));
+        User user = new Gson().fromJson(IssApplication.mUserBean, User.class);
+        if(user!=null){
+        int level=user.getLevel();
+        if(level==2||level==3){
+            ll_show_discount.setVisibility(View.VISIBLE);
+        }
+        }
+        isShowDiscount = MyShare.get(this).getBoolean(Constance.isShowDiscount);
+        if(isShowDiscount){
+            iv_show_discount.setBackgroundResource(R.mipmap.my_xx_sel);
+        }else {
+            iv_show_discount.setBackgroundResource(R.mipmap.my_xx_nor);
+        }
     }
-
+    @OnClick(R.id.iv_show_discount)
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -74,7 +97,15 @@ public class SettingActivity extends BaseActivity{
                     }
                 });
                 break;
-
+            case R.id.iv_show_discount:
+                isShowDiscount=!isShowDiscount;
+                if(isShowDiscount){
+                    iv_show_discount.setBackgroundResource(R.mipmap.my_xx_sel);
+                }else {
+                    iv_show_discount.setBackgroundResource(R.mipmap.my_xx_nor);
+                }
+                MyShare.get(this).putBoolean(Constance.isShowDiscount,isShowDiscount);
+                break;
         }
     }
 

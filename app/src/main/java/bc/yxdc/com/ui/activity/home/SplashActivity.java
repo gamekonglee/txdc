@@ -1,8 +1,10 @@
 package bc.yxdc.com.ui.activity.home;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -31,6 +33,7 @@ import bc.yxdc.com.bean.OverlayAd;
 import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.constant.NetWorkConst;
 import bc.yxdc.com.net.OkHttpUtils;
+import bc.yxdc.com.ui.activity.BussinessApplyActivity;
 import bc.yxdc.com.utils.MyShare;
 import bc.yxdc.com.utils.UIUtils;
 import bocang.json.JSONArray;
@@ -52,6 +55,7 @@ public class SplashActivity extends BaseActivity{
     private TimerSchedule mTimerSc;
     private TextView tv_countDown;
     private TextView tv_jump;
+    private boolean remember;
 
     @Override
     protected void initData() {
@@ -76,15 +80,15 @@ public class SplashActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 if(mTimerSc !=null) mTimerSc.cancel();
-//                boolean remember= MyShare.get(SplashActivity.this).getBoolean(Constance.apply_remember);
-//                if(!remember){
-//                    showDialog();
-//                }else {
-//                    startAct();
-//                }
-                Intent intent=new Intent(SplashActivity.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+                boolean remember= MyShare.get(SplashActivity.this).getBoolean(Constance.apply_remember);
+                if(!remember){
+                    showDialog();
+                }else {
+                    startAct();
+                }
+//                Intent intent=new Intent(SplashActivity.this,MainActivity.class);
+//                startActivity(intent);
+//                finish();
 
             }
         });
@@ -275,15 +279,82 @@ public class SplashActivity extends BaseActivity{
             if(msg.what==countDown){
                 tv_countDown.setText(count+"s");
             }else if(msg.what==finishEnd){
-            Intent intent=new Intent(SplashActivity.this,MainActivity.class);
-            startActivity(intent);
-            finish();
+                boolean remember= MyShare.get(SplashActivity.this).getBoolean(Constance.apply_remember);
+                if(!remember){
+                    showDialog();
+                }else {
+                    startAct();
+                }
+
+
             }
         }
     };
+
+    private void startAct() {
+        Intent intent=new Intent(SplashActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     public void getData(int type, Callback callback) {
         OkHttpUtils.getHomePage(callback);
-
     }
+    public void showDialog(){
+        final Dialog dialog=new Dialog(this,R.style.customDialog);
+        dialog.setContentView(R.layout.dialog_apply);
+        ImageView iv_dismiss=dialog.findViewById(R.id.iv_dismiss);
+        TextView tv_dimiss=dialog.findViewById(R.id.tv_dismiss);
+        ImageView iv_apply=dialog.findViewById(R.id.iv_apply);
+        final TextView tv_remember=dialog.findViewById(R.id.tv_remember);
+        remember = false;
+        iv_dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyShare.get(SplashActivity.this).putBoolean(Constance.apply_remember, remember);
+                dialog.dismiss();
+                startAct();
+            }
+        });
+        tv_dimiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyShare.get(SplashActivity.this).putBoolean(Constance.apply_remember, remember);
+                dialog.dismiss();
+                startAct();
+            }
+        });
+        tv_remember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(remember){
+                    remember =false;
+                    Drawable drawable=getResources().getDrawable(R.mipmap.jm_icom_nor);
+                    drawable.setBounds(0,0,drawable.getMinimumHeight(),drawable.getMinimumWidth());
+                    tv_remember.setCompoundDrawables(drawable,null,null,null);
+                }else {
+                    remember =true;
+                    Drawable drawable=getResources().getDrawable(R.mipmap.jm_icon_sel);
+                    drawable.setBounds(0,0,drawable.getMinimumHeight(),drawable.getMinimumWidth());
+                    tv_remember.setCompoundDrawables(drawable,null,null,null);
+                }
+            }
+        });
+        iv_apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                startActivity(new Intent(SplashActivity.this, BussinessApplyActivity.class));
+                finish();
+            }
+        });
+        try {
+            dialog.show();
+        }catch (Exception e){
+            startActivity(new Intent(this,MainActivity.class));
+            finish();
+        }
+    }
+
 }

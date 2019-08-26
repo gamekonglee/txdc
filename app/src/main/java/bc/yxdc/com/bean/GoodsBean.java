@@ -23,11 +23,21 @@ public class GoodsBean implements Serializable{
     private String goods_sn;
     private String goods_name;
     private String shop_price;
+    private String cost_price;
     private int comment_count;
     private int sales_sum;
     String original_img;
     public String c_url;
     public String c_property;
+
+    public String getCost_price() {
+        return cost_price;
+    }
+
+    public void setCost_price(String cost_price) {
+        this.cost_price = cost_price;
+    }
+
     public String getOriginal_img() {
         return original_img;
     }

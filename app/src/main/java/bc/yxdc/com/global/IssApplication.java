@@ -26,6 +26,7 @@ import app.txdc.shop.R;
 import bc.yxdc.com.bean.Goods;
 import bc.yxdc.com.bean.GoodsBean;
 import bc.yxdc.com.bean.SceneBean;
+import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.utils.ImageLoadProxy;
 import bc.yxdc.com.utils.MyShare;
 import bocang.json.JSONArray;
@@ -37,6 +38,7 @@ import cn.jpush.android.api.JPushInterface;
  */
 
 public class IssApplication extends Application{
+    public static boolean isShowDiscount;
     private static Context instance;
     public static boolean isClassify;
     public static String imagePath;
@@ -83,7 +85,7 @@ public class IssApplication extends Application{
         UMConfigure.setProcessEvent(true);
         }catch (Exception e){
         }
-
+        IssApplication.isShowDiscount=MyShare.get(instance).getBoolean(Constance.isShowDiscount);
 //        IMChatManager.getInstance().init(getApplicationContext(),
 //                "receiverAction",
 //                "6f555230-9f0b-11e9-a2f8-cb23e96e098b",

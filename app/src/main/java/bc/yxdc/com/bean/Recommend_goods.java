@@ -18,6 +18,7 @@ public class Recommend_goods {
     private int goods_id;
     private String goods_name;
     private String shop_price;
+    private String cost_price;
     public String original_img;
     public String sales_sum;
 
@@ -58,4 +59,11 @@ public class Recommend_goods {
         return shop_price;
     }
 
+    public String getCost_price() {
+        return cost_price;
+    }
+
+    public void setCost_price(String cost_price) {
+        this.cost_price = cost_price;
+    }
 }

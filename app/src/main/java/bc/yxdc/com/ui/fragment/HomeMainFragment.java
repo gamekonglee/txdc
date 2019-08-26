@@ -74,6 +74,7 @@ import bc.yxdc.com.ui.activity.user.MessageHomeActivity;
 import bc.yxdc.com.ui.view.EndOfGridView;
 import bc.yxdc.com.utils.ImageUtil;
 import bc.yxdc.com.utils.LogUtils;
+import bc.yxdc.com.utils.MyShare;
 import bc.yxdc.com.utils.MyToast;
 import bc.yxdc.com.utils.UIUtils;
 import bc.yxdc.com.utils.UniversalUtil;
@@ -218,6 +219,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
         xianhuo_goods=new ArrayList<>();
         hot_goods=new ArrayList<>();
         categoryBeans = new ArrayList<>();
+//        IssApplication.isShowDiscount=MyShare.get(getActivity()).getBoolean(Constance.isShowDiscount);
         promotion_goodsQuickAdapter = new QuickAdapter<GoodsBean>(getActivity(), R.layout.item_promotion) {
             @Override
             protected void convert(BaseAdapterHelper helper, GoodsBean item) {
@@ -263,7 +265,11 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
             @Override
             protected void convert(BaseAdapterHelper helper, GoodsBean item) {
                 helper.setText(R.id.name_tv,item.getGoods_name());
+                if(IssApplication.isShowDiscount){
+                    helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
+                }else {
                 helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
+                }
                 helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
 
@@ -273,7 +279,11 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
             @Override
             protected void convert(BaseAdapterHelper helper, Hot_goods item) {
                 helper.setText(R.id.name_tv,item.getGoods_name());
-                helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
+                if(IssApplication.isShowDiscount){
+                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
+                }else {
+                    helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
+                }
                 helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
 
@@ -727,6 +737,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                                 ll_newgoods.removeAllViews();
                                 int width=(UIUtils.getScreenWidth(getActivity())-UIUtils.dip2PX(35))/3;
                                 int height=UIUtils.dip2PX(195-20);
+                                boolean isShowDiscout= MyShare.get(getActivity()).getBoolean(Constance.isShowDiscount);
                                 for(int i=0;i<newGoodsBeans.size();i++){
                                     View view=View.inflate(getActivity(),R.layout.item_promotion,null);
                                     ImageView iv_img=view.findViewById(R.id.iv_img);
@@ -734,7 +745,11 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                                     TextView tv_price=view.findViewById(R.id.tv_price);
                                     TextView tv_sold=view.findViewById(R.id.tv_sold);
                                     tv_name.setText(newGoodsBeans.get(i).getGoods_name());
-                                    tv_price.setText("¥"+(int)Float.parseFloat(newGoodsBeans.get(i).getShop_price()));
+                                    String price=newGoodsBeans.get(i).getShop_price();
+                                    if(isShowDiscout){
+                                        price=newGoodsBeans.get(i).getCost_price();
+                                    }
+                                    tv_price.setText("¥"+(int)Float.parseFloat(price));
                                     tv_sold.setText("已售"+newGoodsBeans.get(i).getSales_sum()+"件");
                                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+newGoodsBeans.get(i).getGoods_id(),iv_img,IssApplication.getImageLoaderOption());
                                     LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(width,height);
@@ -867,6 +882,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
     private void getNews() {
         if(xianhuo_goods!=null&&xianhuo_goods.size()>0){
             ll_xianhuo.removeAllViews();
+            boolean isShowDiscount=MyShare.get(getActivity()).getBoolean(Constance.isShowDiscount);
             for(int i=0;i<xianhuo_goods.size();i++){
                 View view=View.inflate(getActivity(),R.layout.item_news_goods,null);
                 ImageView iv_img=view.findViewById(R.id.iv_img);
@@ -874,7 +890,11 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                 TextView tv_price=view.findViewById(R.id.tv_price);
                 TextView tv_sold=view.findViewById(R.id.tv_sold);
                 tv_name.setText(xianhuo_goods.get(i).getGoods_name());
-                tv_price.setText("¥"+xianhuo_goods.get(i).getShop_price());
+                String price=xianhuo_goods.get(i).getShop_price();
+                if(isShowDiscount){
+                    price=xianhuo_goods.get(i).getCost_price();
+                }
+                tv_price.setText("¥"+price);
                 tv_sold.setText("已售"+xianhuo_goods.get(i).getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+xianhuo_goods.get(i).getGoods_id(),iv_img,IssApplication.getImageLoaderOption());
                 LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -1099,7 +1119,12 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                 @Override
                 protected void convert(BaseAdapterHelper helper, GoodsBean item) {
                     helper.setText(R.id.name_tv,item.getGoods_name());
-                    helper.setText(R.id.price_tv,item.getShop_price()+"");
+                    if(IssApplication.isShowDiscount){
+                        helper.setText(R.id.price_tv,item.getCost_price()+"");
+                    }else {
+                        helper.setText(R.id.price_tv,item.getShop_price()+"");
+                    }
+
                     helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
                 }

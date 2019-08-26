@@ -1,15 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: cn.qqtheme.framework:Common:1.5.6.20190131@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5ece86a0a91d2ce03be232d03614ca73/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/955995a0a38ed25d1dc322a5616ee558/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5ece86a0a91d2ce03be232d03614ca73/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5ece86a0a91d2ce03be232d03614ca73/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/955995a0a38ed25d1dc322a5616ee558/res" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/955995a0a38ed25d1dc322a5616ee558/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.qqtheme.framework/Common/1.5.6.20190131/dcea77e1713c9428ee195383291985fa2e8ba507/Common-1.5.6.20190131-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/modules-2/files-2.1/cn.qqtheme.framework/Common/1.5.6.20190131/dcea77e1713c9428ee195383291985fa2e8ba507/Common-1.5.6.20190131-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

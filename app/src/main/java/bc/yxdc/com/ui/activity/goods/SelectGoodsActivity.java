@@ -1086,7 +1086,12 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
 //
 //                }
 //                old_Price= Double.parseDouble(goodses.getJSONObject(position).getString(Constance.current_price));
-                holder.price_tv.setText("￥" + goodsBeanList.get(position).getShop_price());
+                if(IssApplication.isShowDiscount){
+                    holder.price_tv.setText("￥" + goodsBeanList.get(position).getCost_price());
+                }else {
+                    holder.price_tv.setText("￥" + goodsBeanList.get(position).getShop_price());
+                }
+
                 holder.tv_sold.setText("已售"+goodsBeanList.get(position).getSales_sum()+"件");
                 old_Price=old_Price*1.6;
                 DecimalFormat df=new DecimalFormat("###.00");

@@ -31,99 +31,7 @@ import bc.yxdc.com.constant.Constance;
  * @description :
  */
 public class ShareUtil {
-    /**
-     * 分享操作
-     */
-    public  static void shareWx(final Activity activity, String title, final String path){
-        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
-        WXWebpageObject wxWebpageObject=new WXWebpageObject();
-        wxWebpageObject.webpageUrl=path;
-        WXMediaMessage wxMediaMessage=new WXMediaMessage(wxWebpageObject);
-        wxMediaMessage.title=title;
 
-        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
-        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(thumb,100,100),32);
-        SendMessageToWX.Req req=new SendMessageToWX.Req();
-        req.transaction="urlpage";
-        req.message=wxMediaMessage;
-        req.scene=SendMessageToWX.Req.WXSceneSession;
-        api.sendReq(req);
-    }
-
-    /**
-     * 分享操作
-     */
-    public  static void shareWxPic(final Activity activity, String title,Bitmap bitmap,boolean isSession){
-        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
-//        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(),R.mipmap.logo);
-        WXImageObject wxImageObject=new WXImageObject(bitmap);
-        WXMediaMessage wxMediaMessage=new WXMediaMessage();
-        wxMediaMessage.mediaObject=wxImageObject;
-//        Bitmap thumb=bitmap;
-        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(bitmap,100,100),32);
-//        bitmap.recycle();
-
-        wxMediaMessage.title=title;
-        SendMessageToWX.Req req=new SendMessageToWX.Req();
-//        req.transaction="urlpage";
-        req.message=wxMediaMessage;
-        req.scene=isSession?SendMessageToWX.Req.WXSceneSession:SendMessageToWX.Req.WXSceneTimeline;
-        api.sendReq(req);
-    }
-    /**
-     * 分享操作
-     */
-    public  static void shareWxFile(final Activity activity, String title,String imgpath ,boolean isSession){
-        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
-        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
-        WXFileObject wxImageObject=new WXFileObject();
-        wxImageObject.setFilePath(imgpath);
-        WXMediaMessage wxMediaMessage=new WXMediaMessage();
-        wxMediaMessage.description="";
-        wxMediaMessage.messageExt="";
-        wxMediaMessage.messageAction="";
-
-        wxMediaMessage.mediaObject=wxImageObject;
-//        Bitmap thumb=bitmap;
-        wxMediaMessage.thumbData=ImageUtil.getBitmapByte(bmp);
-//        bitmap.recycle();
-
-        wxMediaMessage.title=title;
-        SendMessageToWX.Req req=new SendMessageToWX.Req();
-//        req.transaction="urlpage";
-        req.message=wxMediaMessage;
-        req.scene=isSession?SendMessageToWX.Req.WXSceneSession:SendMessageToWX.Req.WXSceneTimeline;
-        api.sendReq(req);
-    }
-    public static void sharePyq(Activity activity, String title, String path) {
-        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
-        WXWebpageObject wxWebpageObject=new WXWebpageObject();
-        wxWebpageObject.webpageUrl=path;
-        WXMediaMessage wxMediaMessage=new WXMediaMessage(wxWebpageObject);
-        wxMediaMessage.title=title;
-        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
-        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(thumb,100,100),32);
-        SendMessageToWX.Req req=new SendMessageToWX.Req();
-        req.transaction="urlpage";
-        req.message=wxMediaMessage;
-        req.scene=SendMessageToWX.Req.WXSceneTimeline;
-        api.sendReq(req);
-    }
-    public static void shareWxVideo(Activity activity,String title, String link) {
-        IWXAPI apis=WXAPIFactory.createWXAPI(activity, Constance.APP_ID,true);
-        WXVideoObject videoObject=new WXVideoObject();
-        videoObject.videoUrl=link;
-        WXMediaMessage mediaMessage=new WXMediaMessage(videoObject);
-        mediaMessage.title=title;
-        mediaMessage.description="来自"+ activity.getResources().getString(R.string.app_name)+"的分享";
-        Bitmap bitmap=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
-        mediaMessage.thumbData=ImageUtil.getBitmapByte(bitmap);
-        SendMessageToWX.Req req=new SendMessageToWX.Req();
-        req.message=mediaMessage;
-        req.scene=SendMessageToWX.Req.WXSceneSession;
-        apis.sendReq(req);
-
-    }
 
 //    public static void showShare(final Activity activity, String title, final String path, final String imagePath) {
 //        if (TextUtils.isEmpty(path)) {
@@ -469,7 +377,99 @@ public class ShareUtil {
 //
 //    }
 
+    /**
+     * 分享操作
+     */
+    public  static void shareWx(final Activity activity, String title, final String path){
+        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
+        WXWebpageObject wxWebpageObject=new WXWebpageObject();
+        wxWebpageObject.webpageUrl=path;
+        WXMediaMessage wxMediaMessage=new WXMediaMessage(wxWebpageObject);
+        wxMediaMessage.title=title;
 
+        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
+        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(thumb,100,100),32);
+        SendMessageToWX.Req req=new SendMessageToWX.Req();
+        req.transaction="urlpage";
+        req.message=wxMediaMessage;
+        req.scene=SendMessageToWX.Req.WXSceneSession;
+        api.sendReq(req);
+    }
+
+    /**
+     * 分享操作
+     */
+    public  static void shareWxPic(final Activity activity, String title,Bitmap bitmap,boolean isSession){
+        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
+//        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(),R.mipmap.logo);
+        WXImageObject wxImageObject=new WXImageObject(bitmap);
+        WXMediaMessage wxMediaMessage=new WXMediaMessage();
+        wxMediaMessage.mediaObject=wxImageObject;
+//        Bitmap thumb=bitmap;
+        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(bitmap,100,100),32);
+//        bitmap.recycle();
+
+        wxMediaMessage.title=title;
+        SendMessageToWX.Req req=new SendMessageToWX.Req();
+//        req.transaction="urlpage";
+        req.message=wxMediaMessage;
+        req.scene=isSession?SendMessageToWX.Req.WXSceneSession:SendMessageToWX.Req.WXSceneTimeline;
+        api.sendReq(req);
+    }
+    /**
+     * 分享操作
+     */
+    public  static void shareWxFile(final Activity activity, String title,String imgpath ,boolean isSession){
+        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
+        Bitmap bmp=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
+        WXFileObject wxImageObject=new WXFileObject();
+        wxImageObject.setFilePath(imgpath);
+        WXMediaMessage wxMediaMessage=new WXMediaMessage();
+        wxMediaMessage.description="";
+        wxMediaMessage.messageExt="";
+        wxMediaMessage.messageAction="";
+
+        wxMediaMessage.mediaObject=wxImageObject;
+//        Bitmap thumb=bitmap;
+        wxMediaMessage.thumbData=ImageUtil.getBitmapByte(bmp);
+//        bitmap.recycle();
+
+        wxMediaMessage.title=title;
+        SendMessageToWX.Req req=new SendMessageToWX.Req();
+//        req.transaction="urlpage";
+        req.message=wxMediaMessage;
+        req.scene=isSession?SendMessageToWX.Req.WXSceneSession:SendMessageToWX.Req.WXSceneTimeline;
+        api.sendReq(req);
+    }
+    public static void sharePyq(Activity activity, String title, String path) {
+        IWXAPI api=WXAPIFactory.createWXAPI(activity,Constance.APP_ID,true);
+        WXWebpageObject wxWebpageObject=new WXWebpageObject();
+        wxWebpageObject.webpageUrl=path;
+        WXMediaMessage wxMediaMessage=new WXMediaMessage(wxWebpageObject);
+        wxMediaMessage.title=title;
+        Bitmap thumb= BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
+        wxMediaMessage.thumbData=ImageUtil.bitmap2Bytes(ImageUtil.createThumbBitmap(thumb,100,100),32);
+        SendMessageToWX.Req req=new SendMessageToWX.Req();
+        req.transaction="urlpage";
+        req.message=wxMediaMessage;
+        req.scene=SendMessageToWX.Req.WXSceneTimeline;
+        api.sendReq(req);
+    }
+    public static void shareWxVideo(Activity activity,String title, String link) {
+        IWXAPI apis=WXAPIFactory.createWXAPI(activity, Constance.APP_ID,true);
+        WXVideoObject videoObject=new WXVideoObject();
+        videoObject.videoUrl=link;
+        WXMediaMessage mediaMessage=new WXMediaMessage(videoObject);
+        mediaMessage.title=title;
+        mediaMessage.description="来自"+ activity.getResources().getString(R.string.app_name)+"的分享";
+        Bitmap bitmap=BitmapFactory.decodeResource(activity.getResources(), R.mipmap.logo);
+        mediaMessage.thumbData=ImageUtil.getBitmapByte(bitmap);
+        SendMessageToWX.Req req=new SendMessageToWX.Req();
+        req.message=mediaMessage;
+        req.scene=SendMessageToWX.Req.WXSceneSession;
+        apis.sendReq(req);
+
+    }
     public static void shareQQ(Activity activity, String title, String apkUrl, String shareimage) {
         Tencent mTencent= Tencent.createInstance(Constance.QQ_APP_ID,activity);
         final Bundle params = new Bundle();

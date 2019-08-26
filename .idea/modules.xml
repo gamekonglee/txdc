@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/m7app/m7app.iml" filepath="$PROJECT_DIR$/m7app/m7app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/regionSeletor/regionSeletor.iml" filepath="$PROJECT_DIR$/regionSeletor/regionSeletor.iml" />
       <module fileurl="file://$PROJECT_DIR$/swipelistviewlibrary/swipelistviewlibrary.iml" filepath="$PROJECT_DIR$/swipelistviewlibrary/swipelistviewlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/txdc.iml" filepath="$PROJECT_DIR$/txdc.iml" />
     </modules>

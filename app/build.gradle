@@ -167,6 +167,7 @@ dependencies {
     compile 'com.umeng.umsdk:common:2.0.0'
     implementation project(path: ':m7app')
     implementation project(path: ':addressApp')
+    implementation project(path: ':regionSeletor')
 //    implementation files('libs/IMKFSDK-3.2.3.jar')
 }
 //configurations.all {

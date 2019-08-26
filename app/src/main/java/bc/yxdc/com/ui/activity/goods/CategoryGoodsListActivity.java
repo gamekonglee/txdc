@@ -185,7 +185,11 @@ public class CategoryGoodsListActivity extends BaseActivity implements SwipeRefr
                     helper.setText(R.id.name_tv,item.getGoods_name());
                     ImageView imageView=helper.getView(R.id.imageView);
                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),imageView, IssApplication.getImageLoaderOption());
-                    helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                    if(IssApplication.isShowDiscount){
+                        helper.setText(R.id.price_tv,"￥" +item.getCost_price());
+                    }else {
+                        helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                    }
                     helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
 
 
@@ -198,7 +202,11 @@ public class CategoryGoodsListActivity extends BaseActivity implements SwipeRefr
                     helper.setText(R.id.name_tv,item.getGoods_name());
                     ImageView imageView=helper.getView(R.id.imageView);
                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),imageView, IssApplication.getImageLoaderOption());
-                    helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                    if(IssApplication.isShowDiscount){
+                        helper.setText(R.id.price_tv,"￥" +item.getCost_price());
+                    }else {
+                        helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                    }
                     helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
                 }
             };

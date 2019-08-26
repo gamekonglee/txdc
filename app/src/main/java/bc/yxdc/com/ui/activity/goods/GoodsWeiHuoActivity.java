@@ -56,7 +56,11 @@ public class GoodsWeiHuoActivity extends BaseActivity {
             @Override
             protected void convert(BaseAdapterHelper helper, GoodsBean item) {
                 helper.setText(R.id.name_tv,item.getGoods_name());
-                helper.setText(R.id.price_tv,item.getShop_price()+"");
+                if(IssApplication.isShowDiscount){
+                    helper.setText(R.id.price_tv,"￥" +item.getCost_price());
+                }else {
+                    helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                }
                 helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
 

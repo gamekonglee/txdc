@@ -78,6 +78,7 @@ public class GoodsXsQgActivity extends BaseActivity {
             protected void convert(BaseAdapterHelper helper, SaleListBean item) {
                 helper.setText(R.id.tv_name,item.getGoods_name());
                 helper.setText(R.id.tv_price,"¥"+item.getShop_price());
+
                 helper.setText(R.id.tv_store_count,"库存"+item.getStore_count()+"件");
                 helper.setText(R.id.tv_sold,"已售"+(item.getPercent()*item.getStore_count())+"件");
                 ImageView iv=helper.getView(R.id.iv_img);

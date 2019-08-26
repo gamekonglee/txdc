@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.bigkoo:convenientbanner:1.1.4@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83aa49df785321ba4cb1a6180983db94/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83aa49df785321ba4cb1a6180983db94/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/2ee2114598540e3b0ae6717769b1edd9/res" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/2ee2114598540e3b0ae6717769b1edd9/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bigkoo/convenientbanner/1.1.4/b3067108ed0a9b81d278b44077a7cd97f627d44d/convenientbanner-1.1.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/modules-2/files-2.1/com.bigkoo/convenientbanner/1.1.4/b3067108ed0a9b81d278b44077a7cd97f627d44d/convenientbanner-1.1.4-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,1 +1,1 @@
-include ':app', ':common', ':swipelistviewlibrary', ':m7app', ':addressApp'
+include ':app', ':common', ':swipelistviewlibrary', ':m7app', ':addressApp', ':regionSeletor'

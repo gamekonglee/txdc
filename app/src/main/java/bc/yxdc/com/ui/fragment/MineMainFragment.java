@@ -151,7 +151,6 @@ public class MineMainFragment extends Fragment implements View.OnClickListener {
                         public void run() {
                             if(jsonObject!=null&&jsonObject.getJSONObject(Constance.result)!=null){
                                 final User user=new Gson().fromJson(jsonObject.getJSONObject(Constance.result).toString(),User.class);
-
                                 if(jsonObject.getInt(Constance.status)==1){
                                 IssApplication.mUserBean=new Gson().toJson(user,User.class);
                                 ImageLoader.getInstance().displayImage(NetWorkConst.API_HOST+user.getHead_pic(),iv_head);

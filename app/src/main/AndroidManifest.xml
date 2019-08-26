@@ -258,7 +258,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name="bc.yxdc.com.ui.activity.UserLogActivity"
             android:screenOrientation="portrait"/>
-
+        <activity android:name="bc.yxdc.com.ui.activity.BussinessApplyActivity"
+            android:screenOrientation="portrait"
+            />
         <receiver
             android:name="bc.yxdc.com.receiver.MyReceiver"
             android:enabled="true"

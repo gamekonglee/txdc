@@ -210,6 +210,7 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
+                            android:visibility="gone"
                             android:id="@+id/rl_zhangdan"
                             android:layout_width="match_parent"
                             android:layout_height="60dp">
@@ -228,14 +229,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
 
-
+                            <View
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:background="@color/lines_efefef"
+                                android:layout_width="match_parent"
+                                android:layout_alignParentBottom="true"
+                                android:layout_height="1dp"/>
                         </RelativeLayout>
-                        <View
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:background="@color/lines_efefef"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"/>
+
                         <RelativeLayout
                             android:id="@+id/rl_collect"
                             android:layout_width="match_parent"

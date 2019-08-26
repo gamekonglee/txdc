@@ -568,4 +568,5 @@ public class Constance {
     public static String rec_id="rec_id";
     public static String openAdv="openAdv";
     public static String refreshCart="refreshCart";
+    public static String isShowDiscount="isShowDiscount";
 }
