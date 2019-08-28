@@ -30,9 +30,6 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.realpower.addresspicker.util.DataHelper;
-import com.realpower.addresspicker.view.PickAddressInterface;
-import com.realpower.addresspicker.view.PickAddressView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -571,8 +568,6 @@ public class AddressAddActivity extends BaseActivity {
 //        });
     }
 
-    private PickAddressView fourPicker;
-    List<com.realpower.addresspicker.bean.AddressBean> addressBeanList=new ArrayList<>();
 
     @Override
     public void onDestroy() {

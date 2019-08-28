@@ -18,6 +18,7 @@ public class PromoteBean {
         private int goods_id;
         private String goods_name;
         private String shop_price;
+        String cost_price;
         private int click_count;
         private String market_price;
         private long end_time;
@@ -25,7 +26,16 @@ public class PromoteBean {
         private String original_img;
         private int sales_sum;
         private long server_time;
-        public void setGoods_id(int goods_id) {
+
+    public String getCost_price() {
+        return cost_price;
+    }
+
+    public void setCost_price(String cost_price) {
+        this.cost_price = cost_price;
+    }
+
+    public void setGoods_id(int goods_id) {
             this.goods_id = goods_id;
         }
         public int getGoods_id() {

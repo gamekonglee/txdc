@@ -38,8 +38,8 @@ android {
         applicationId 'app.txdc.shop'
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 9
-        versionName "1.0.8"
+        versionCode 10
+        versionName "1.1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -166,8 +166,9 @@ dependencies {
     compile 'com.umeng.umsdk:analytics:8.0.0'
     compile 'com.umeng.umsdk:common:2.0.0'
     implementation project(path: ':m7app')
-    implementation project(path: ':addressApp')
-    implementation project(path: ':regionSeletor')
+//    implementation project(path: ':addressApp')
+    implementation 'com.github.gamekonglee:regionSelector:1.0'
+//    implementation project(path: ':regionSeletor')
 //    implementation files('libs/IMKFSDK-3.2.3.jar')
 }
 //configurations.all {

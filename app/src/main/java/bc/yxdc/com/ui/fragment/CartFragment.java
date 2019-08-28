@@ -204,7 +204,11 @@ public class CartFragment extends BaseFragment implements View.OnClickListener, 
 
 
                 helper.setText(R.id.tv_name,""+item.getGoods_name());
+                if(IssApplication.isShowDiscount){
+                    helper.setText(R.id.tv_price,"¥"+item.getCost_price());
+                }else {
                 helper.setText(R.id.tv_price,"¥"+item.getShop_price());
+                }
                 TextView tv_old_price=helper.getView(R.id.tv_old_price);
 //                helper.setText(R.id.tv_old_price,"¥"+(df.format(Double.parseDouble(item.getCurrent_price())*1.6)));
                 tv_old_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);

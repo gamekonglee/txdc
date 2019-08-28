@@ -99,6 +99,7 @@ public class SettingActivity extends BaseActivity{
                 break;
             case R.id.iv_show_discount:
                 isShowDiscount=!isShowDiscount;
+                IssApplication.isShowDiscount=isShowDiscount;
                 if(isShowDiscount){
                     iv_show_discount.setBackgroundResource(R.mipmap.my_xx_sel);
                 }else {

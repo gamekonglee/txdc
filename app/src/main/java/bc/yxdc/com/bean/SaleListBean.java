@@ -21,9 +21,18 @@ public class SaleListBean {
     private int goods_id;
     private int item_id;
     private String shop_price;
+    String cost_price;
     private int percent;
     private int store_count;
     String original_img;
+
+    public String getCost_price() {
+        return cost_price;
+    }
+
+    public void setCost_price(String cost_price) {
+        this.cost_price = cost_price;
+    }
 
     public String getOriginal_img() {
         return original_img;

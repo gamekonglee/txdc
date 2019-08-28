@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.gamekonglee:regionSelector:1.0@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/7432139c38150f884fdab5dd2fbaf65e/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/7432139c38150f884fdab5dd2fbaf65e/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/modules-2/files-2.1/com.github.gamekonglee/regionSelector/1.0/8e5154289a411f7abe7665a25ff317331b1ce9a7/regionSelector-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -22,6 +22,7 @@ import bc.yxdc.com.bean.Goods;
 import bc.yxdc.com.bean.Goods_attr_list;
 import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.constant.NetWorkConst;
+import bc.yxdc.com.global.IssApplication;
 import bc.yxdc.com.listener.IDiyProductInfoListener;
 import bc.yxdc.com.net.OkHttpUtils;
 import bc.yxdc.com.ui.adapter.ParamentAdapter02;
@@ -147,10 +148,14 @@ public class DiyProductInfoPopWindow extends BasePopwindown implements View.OnCl
                     if(name.length()>=8){
                         name=name.substring(0,8);
                     }
+                    String price=productObject.getShop_price();
+                    if(IssApplication.isShowDiscount){
+                        price=productObject.getCost_price();
+                    }
                     attachs.add("名称: " + name);
-                    attachs.add("价格: " +"￥"+ productObject.getShop_price());
+                    attachs.add("价格: " +"￥"+ price);
                     mParamMsg.append("名称: " + name+ "\n");
-                    mParamMsg.append("价格: ￥" + productObject.getShop_price()+ "\n");
+                    mParamMsg.append("价格: ￥" + price+ "\n");
                     for (int i = 0; i < attachmentArray.size(); i++) {
                         Goods_attr_list jsonObject = attachmentArray.get(i);
                         attachs.add(jsonObject.getAttr_name()+ ": " + jsonObject.getAttr_value());

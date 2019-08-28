@@ -900,10 +900,13 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
                                 break;
                             }
                         }
+                        String price=spec_goods_prices.get(currentAttrPosi).getPrice();
+                        if(IssApplication.isShowDiscount){
+                            price=spec_goods_prices.get(currentAttrPosi).getCost_price();
+                        }
 
-
-                        proPriceTv.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
-                        tv_price.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
+                        proPriceTv.setText("¥"+price);
+                        tv_price.setText("¥"+price);
                         warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();
                         String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
                         if (TextUtils.isEmpty(unit)||unit.equals("null")) {
@@ -1028,13 +1031,6 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
         final InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(tv_num.getWindowToken(),0);
         tv_name.setText(mProductionObject.getGoods_name());
-//        for(int i=0;i<spec_goods_prices.size();i++){
-//                if(i>0){
-//                    if(Double.parseDouble(spec_goods_prices.get(i).getPrice())<Double.parseDouble(spec_goods_prices.get(i-1).getPrice())){
-//                        currentAttrPosi =i;
-//                    }
-//                }
-//        }
         urlPos = -1;
         for(int i=0;i<goods_spec_lists.size();i++){
             Goods_spec_list temp=goods_spec_lists.get(i);
@@ -1078,8 +1074,11 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
             }
         }
 
-
-        tv_price.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
+        String price=spec_goods_prices.get(currentAttrPosi).getPrice();
+        if(IssApplication.isShowDiscount){
+            price=spec_goods_prices.get(currentAttrPosi).getCost_price();
+        }
+        tv_price.setText("¥"+price);
         tv_store_count_dialog.setText("库存："+spec_goods_prices.get(currentAttrPosi).getStore_count());
         String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
         warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();
@@ -1197,8 +1196,12 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
                                        break;
                                    }
                                }
-                        proPriceTv.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
-                        tv_price.setText("¥"+spec_goods_prices.get(currentAttrPosi).getPrice());
+                               String price=spec_goods_prices.get(currentAttrPosi).getPrice();
+                               if(IssApplication.isShowDiscount){
+                                price=spec_goods_prices.get(currentAttrPosi).getCost_price();
+                               }
+                        proPriceTv.setText("¥"+price);
+                        tv_price.setText("¥"+price);
                         warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();
                         String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
                         if (TextUtils.isEmpty(unit)||unit.equals("null")) {

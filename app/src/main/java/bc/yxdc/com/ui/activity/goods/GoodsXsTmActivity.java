@@ -80,7 +80,11 @@ public class GoodsXsTmActivity extends BaseActivity implements EndOfListView.OnE
             @Override
             protected void convert(BaseAdapterHelper helper, PromoteBean item) {
                 helper.setText(R.id.tv_name,item.getGoods_name());
+                if(IssApplication.isShowDiscount){
+                    helper.setText(R.id.tv_price,"¥"+item.getCost_price());
+                }else {
                 helper.setText(R.id.tv_price,"¥"+item.getShop_price());
+                }
                 helper.setText(R.id.tv_store_count,"");
                 helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
                 ImageView iv=helper.getView(R.id.iv_img);

@@ -279,6 +279,7 @@ public class SplashActivity extends BaseActivity{
             if(msg.what==countDown){
                 tv_countDown.setText(count+"s");
             }else if(msg.what==finishEnd){
+                if(mTimerSc!=null)mTimerSc.cancel();
                 boolean remember= MyShare.get(SplashActivity.this).getBoolean(Constance.apply_remember);
                 if(!remember){
                     showDialog();

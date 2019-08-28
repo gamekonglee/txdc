@@ -1,8 +1,14 @@
 package bc.yxdc.com.ui.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -30,6 +36,7 @@ import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.constant.NetWorkConst;
 import bc.yxdc.com.global.IssApplication;
 import bc.yxdc.com.net.OkHttpUtils;
+import bc.yxdc.com.ui.activity.goods.ProDetailActivity;
 import bc.yxdc.com.ui.activity.home.MainActivity;
 import bc.yxdc.com.ui.activity.user.AddressListActivity;
 import bc.yxdc.com.ui.activity.user.CollectActivity;
@@ -39,9 +46,12 @@ import bc.yxdc.com.ui.activity.user.MyOrderActivity;
 import bc.yxdc.com.ui.activity.user.SettingActivity;
 import bc.yxdc.com.ui.activity.user.UserInfoActivity;
 import bc.yxdc.com.ui.activity.user.ZujiActivity;
+import bc.yxdc.com.utils.ImageUtil;
 import bc.yxdc.com.utils.LogUtils;
 import bc.yxdc.com.utils.MyShare;
 import bc.yxdc.com.utils.MyToast;
+import bc.yxdc.com.utils.PermissionUtils;
+import bc.yxdc.com.utils.ScannerUtils;
 import bc.yxdc.com.utils.UIUtils;
 import bocang.json.JSONObject;
 import butterknife.BindView;
@@ -49,6 +59,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import okhttp3.Callback;
+
+import static bc.yxdc.com.utils.PermissionUtils.CODE_WRITE_EXTERNAL_STORAGE;
 
 /**
  * Created by gamekonglee on 2018/8/15.
@@ -312,12 +324,39 @@ public class MineMainFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.rl_share:
-                UIUtils.showShareLinkDialog(getActivity(),NetWorkConst.SHARE_APK_URL);
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},200);
+
+//                    PermissionUtils.requestPermissionsResult(getActivity(), CODE_WRITE_EXTERNAL_STORAGE, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, new int[]{200}, new PermissionUtils.PermissionGrant() {
+//                        @Override
+//                        public void onPermissionGranted(int requestCode) {
+//                            Bitmap bitmap= ImageUtil.getBitmapById(getActivity(),R.mipmap.img_share);
+//                            String localPath=ScannerUtils.saveImageToGallery02(getActivity(), bitmap, ScannerUtils.ScannerType.RECEIVER);
+//                            UIUtils.showShareDialog(getActivity(),bitmap,NetWorkConst.SHARE_APK_URL,localPath);
+//                        }
+//                    });
+                }else {
+                    Bitmap bitmap= ImageUtil.getBitmapById(getActivity(),R.mipmap.img_share);
+                    String localPath=ScannerUtils.saveImageToGallery02(getActivity(), bitmap, ScannerUtils.ScannerType.RECEIVER);
+                    UIUtils.showShareDialog(getActivity(),bitmap,NetWorkConst.SHARE_APK_URL,localPath);
+                }
+
+//                UIUtils.showShareLinkDialog(getActivity(),NetWorkConst.SHARE_APK_URL);
                 break;
             case R.id.rl_zhangdan:
 
                 break;
 
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==200){
+            Bitmap bitmap= ImageUtil.getBitmapById(getActivity(),R.mipmap.img_share);
+            String localPath=ScannerUtils.saveImageToGallery02(getActivity(), bitmap, ScannerUtils.ScannerType.RECEIVER);
+            UIUtils.showShareDialog(getActivity(),bitmap,NetWorkConst.SHARE_APK_URL,localPath);
         }
     }
 

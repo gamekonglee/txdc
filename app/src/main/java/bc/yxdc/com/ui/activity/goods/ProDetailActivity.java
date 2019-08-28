@@ -629,7 +629,6 @@ public class ProDetailActivity extends BaseActivity implements ViewPager.OnPageC
             return;
         if (goods.getSpec_goods_price().size() == 0) {
             sendGoShoppingCart(goods.getGoods().getGoods_id() + "", "0", 1);
-
         } else {
             selectParament();
         }

@@ -209,7 +209,13 @@ public class BussinessApplyActivity extends BaseActivity {
             public List<RegionBean> setOnZoneSelected(RegionBean regionBean) {
                 zoneId = regionBean.getId();
                 zoneName = regionBean.getName();
-                tv_region.setText(provinceName+" "+cityName+" "+zoneName);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tv_region.setText(provinceName+" "+cityName+" "+zoneName);
+                    }
+                });
+
 //                Response response=OkHttpUtils.getRegionSync(regionBean.getId());
 //                JSONObject jsonObject= null;
 //                try {
