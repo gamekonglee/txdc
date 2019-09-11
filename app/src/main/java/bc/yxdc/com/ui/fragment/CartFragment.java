@@ -36,6 +36,8 @@ import com.yjn.swipelistview.swipelistviewlibrary.widget.SwipeMenuItem;
 import com.yjn.swipelistview.swipelistviewlibrary.widget.SwipeMenuListView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -114,6 +116,9 @@ public class CartFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void initUI() {
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
         edit_tv = (TextView)  getActivity().findViewById(R.id.edit_tv);
         settle_tv = (TextView) getActivity().findViewById(R.id.settle_tv);
         checkAll = (CheckBox) getActivity().findViewById(R.id.checkAll);
@@ -203,15 +208,17 @@ public class CartFragment extends BaseFragment implements View.OnClickListener, 
             protected void convert(BaseAdapterHelper helper, GoodsBean item) {
 
 
-                helper.setText(R.id.tv_name,""+item.getGoods_name());
+                    helper.setText(R.id.tv_name,""+item.getGoods_name());
                 if(IssApplication.isShowDiscount){
-                    helper.setText(R.id.tv_price,"¥"+item.getCost_price());
+                    helper.setText(R.id.tv_price,"代理价：¥"+item.getCost_price());
+                    helper.setText(R.id.tv_old_price,"市场价：￥"+item.getShop_price());
                 }else {
-                helper.setText(R.id.tv_price,"¥"+item.getShop_price());
+                    helper.setText(R.id.tv_old_price," ");
+                    helper.setText(R.id.tv_price,"¥"+item.getShop_price());
                 }
-                TextView tv_old_price=helper.getView(R.id.tv_old_price);
+//                TextView tv_old_price=helper.getView(R.id.tv_old_price);
 //                helper.setText(R.id.tv_old_price,"¥"+(df.format(Double.parseDouble(item.getCurrent_price())*1.6)));
-                tv_old_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+//                tv_old_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
                 ImageView imageView=helper.getView(R.id.iv);
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),imageView,((IssApplication)getActivity().getApplicationContext()).getImageLoaderOption());
 
@@ -256,7 +263,14 @@ public class CartFragment extends BaseFragment implements View.OnClickListener, 
             }
         });
     }
-
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refreshData(String event){
+        if(event.equals("refresh")){
+            LogUtils.logE("refresh",event);
+            goodsCnxhBeans=new ArrayList<>();
+            loadLikeGoods();
+        }
+    }
     private void deleteShoppingCart(String id) {
         String token=MyShare.get(getActivity()).getString(Constance.token);
         String user_id=MyShare.get(getActivity()).getString(Constance.user_id);
@@ -915,6 +929,12 @@ public class CartFragment extends BaseFragment implements View.OnClickListener, 
 
     private void sendUpdateCart(String string, String num) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     private AlertView mAlertViewExt;//窗口拓展例子

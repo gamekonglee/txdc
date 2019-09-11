@@ -569,4 +569,5 @@ public class Constance {
     public static String openAdv="openAdv";
     public static String refreshCart="refreshCart";
     public static String isShowDiscount="isShowDiscount";
+    public static String is_submit_bussiness_apply="is_submit_bussiness_apply";
 }

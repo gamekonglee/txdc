@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AvailableLibraryUpdateStorage">
     <library-updates>
       <library-update>
@@ -141,33 +144,40 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="txdc" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/ProDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5452#5453#0" expanded="true" />
-                <element signature="e#5555#5556#0" expanded="true" />
-                <element signature="e#6083#6084#0" expanded="true" />
-                <element signature="e#6134#6135#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="7800">
+              <caret line="604" column="16" selection-start-line="604" selection-start-column="16" selection-end-line="604" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/HomeMainFragment.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="192" column="39" selection-start-line="192" selection-start-column="39" selection-end-line="192" selection-end-column="39" />
+            <state relative-caret-position="335">
+              <caret line="1142" column="66" selection-start-line="1142" selection-start-column="66" selection-end-line="1142" selection-end-column="66" />
+              <folding>
+                <element signature="e#16699#16700#0" expanded="true" />
+                <element signature="e#16793#16794#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,8 +185,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="312">
+              <caret line="26" column="91" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -194,36 +204,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>shuyu</find>
-      <find>CircleImageView</find>
-      <find>ScannerType</find>
-      <find>已售</find>
-      <find>TYPE_HOME_RM</find>
-      <find>cost</find>
-      <find>newGoodsBeans</find>
       <find>TYPE_HOME_XIANHUO</find>
-      <find>TYPE_HOME_WEIHUO</find>
-      <find>gv_rm</find>
-      <find>adapterRm</find>
-      <find>adapterCnxh</find>
-      <find>TAKE_PHOTO</find>
-      <find>rl_search</find>
-      <find>adapter</find>
+      <find>item_goods</find>
+      <find>R.layout.item_goods</find>
       <find>price_tv</find>
-      <find>TYPE_GOODS_LIST</find>
+      <find>item_gridview_fm_product</find>
+      <find>R.layout.item_gridview_fm_product</find>
+      <find>R.layout.item_gridview_fm_product_single</find>
+      <find>priductGridView</find>
+      <find>Rm</find>
+      <find>TYPE_HOME_RM</find>
+      <find>TYPE_HOME_TYPE</find>
+      <find>adapterRm</find>
+      <find>Main</find>
+      <find>tv_old_price</find>
+      <find>subscr</find>
+      <find>adapter</find>
+      <find>productId</find>
+      <find>likeGoods</find>
       <find>TYPE_PRO_DETAIL</find>
-      <find>TYPE_PRO_PC</find>
-      <find>mView.</find>
-      <find>statu</find>
-      <find>sendDealer</find>
-      <find>getPrice</find>
-      <find>priceTv</find>
-      <find>TYPE_HOME_NEWS</find>
-      <find>cartList</find>
-      <find>path</find>
-      <find>mLocalPath</find>
-      <find>requestCode</find>
-      <find>grantResults</find>
+      <find>IssApplication.mSelectProducts</find>
+      <find>c_url</find>
+      <find>goodses</find>
+      <find>IMAGE_URL</find>
+      <find>view_single</find>
+      <find>goodsBeanList</find>
+      <find>urlPos</find>
+      <find>goods_spec_lists</find>
+      <find>currentP</find>
+      <find>autoLinefeedLayouts</find>
+      <find>tvListList</find>
     </findStrings>
     <replaceStrings>
       <replace>getActivity()</replace>
@@ -243,31 +253,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fm_cart_new.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_goods_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_attr_select.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/view/AutoLinefeedLayout.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_corner_jd_red.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/utils/UIUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/utils/ShareUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/Constance.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_mine_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/GoodsBean.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Hot_goods.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/GoodsListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/global/IssApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/HomeMainFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/CategoryGoodsListActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsWeiHuoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Recommend_goods.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/ParameterFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/bg_corner_trans_bottm_10.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_bussiness_apply.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/NetWorkConst.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/net/OkHttpUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_apply.xml" />
         <option value="$PROJECT_DIR$/regionSeletor/src/main/java/com/gklee/regionselector/RegionSelectDialog.java" />
@@ -276,66 +265,61 @@
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsXsQgActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/PromoteBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsXsTmActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/AddressAddActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/SettingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/CartFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_promotion.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/ProDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/view/popwindow/DiyProductInfoPopWindow.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/MineMainFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/home/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/net/OkHttpUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/NetWorkConst.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_bussiness_apply.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_home_tail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/gb_progress_dialog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/view/MyProgressDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/load_dialog.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_promotion.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_home_temai.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_promotion_2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/frag_home_news.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_news_goods_2.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsSearchResultActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/ParameterFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_gridview_fm_product_single.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_goods.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/SettingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/HomeMainFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/GoodsListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_like_goods.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/CartFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/CategoryGoodsListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fm_product_introduce.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_gridview_fm_product.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/diy/DiyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/Constance.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/home/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="50" />
-    <option name="width" value="1855" />
-    <option name="height" value="933" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
-            <path>
-              <item name="txdc" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="txdc" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="txdc" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txdc" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="txdc" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="fragment" type="462c0819:PsiDirectoryNode" />
-            </path>
             <path>
               <item name="txdc" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
@@ -344,6 +328,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -460,11 +447,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="50" width="1855" height="933" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5023981" side_tool="true" weight="0.23642944" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49760193" visible="true" weight="0.18201876" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49760193" visible="true" weight="0.2167382" />
       <window_info id="Structure" order="2" sideWeight="0.5023981" side_tool="true" weight="0.23642944" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -472,22 +459,22 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" weight="0.3297568" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.5755396" />
-      <window_info anchor="bottom" id="Logcat" order="1" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.29608294" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32949308" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4796163" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.6905444" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.3295129" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.29964328" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32949308" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.5461255" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.6905444" />
+      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.2979651" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.32960597" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.32818532" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.32747602" />
     </layout>
   </component>
   <component name="XDebuggerManager">
@@ -495,37 +482,37 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java</url>
-          <line>101</line>
+          <line>102</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java</url>
-          <line>102</line>
+          <line>103</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java</url>
-          <line>105</line>
+          <line>106</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java</url>
-          <line>109</line>
+          <line>111</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/CartFragment.java</url>
-          <line>334</line>
+          <line>348</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/CartFragment.java</url>
-          <line>335</line>
+          <line>349</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -649,407 +636,433 @@
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java</url>
+          <line>871</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java</url>
+          <line>870</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/HomeMainFragment.java</url>
+          <line>848</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java</url>
+          <line>863</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java</url>
+          <line>865</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java</url>
+          <line>864</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Spec_goods_price.java">
+    <entry file="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/modules-2/files-2.1/androidx.swiperefreshlayout/swiperefreshlayout/1.0.0/ab92d86c004eb1d48e45f311b02ca53d6c86b607/swiperefreshlayout-1.0.0-sources.jar!/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding>
-            <element signature="e#1002#1003#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Hot_goods.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/DetailGoodsFragmemt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#751#752#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="213">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="75" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/GoodsBean.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/view/PMSwipeRefreshLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="510">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/modules-2/files-2.1/com.tencent.mm.opensdk/wechat-sdk-android-without-mta/5.4.3/4390933c8162e7be20987964d03c652e5d9bde45/wechat-sdk-android-without-mta-5.4.3.jar!/com/tencent/mm/opensdk/openapi/IWXAPI.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/SettingTextActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+        <state relative-caret-position="312">
+          <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/CategoryGoodsListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="291" column="17" lean-forward="true" selection-start-line="291" selection-start-column="17" selection-end-line="291" selection-end-column="17" />
-          <folding>
-            <element signature="e#11288#11289#0" expanded="true" />
-            <element signature="e#11390#11391#0" expanded="true" />
-            <element signature="e#11843#11844#0" expanded="true" />
-            <element signature="e#11921#11922#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/my_xx_nor.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsSearchByImgActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_home_tail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="510" column="41" lean-forward="true" selection-start-line="510" selection-start-column="41" selection-end-line="510" selection-end-column="41" />
+        <state relative-caret-position="315">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_home_factory_sell.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_promotion.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_promotion_2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_home_temai.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="112" column="17" lean-forward="true" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_news_goods.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_news_goods_2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="248" column="41" lean-forward="true" selection-start-line="248" selection-start-column="41" selection-end-line="248" selection-end-column="41" />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_home_news.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="375" column="46" lean-forward="true" selection-start-line="375" selection-start-column="46" selection-end-line="375" selection-end-column="46" />
+        <state relative-caret-position="105">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/global/IssApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="40" column="31" lean-forward="true" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsShareActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="477" lean-forward="true" selection-start-line="477" selection-end-line="477" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_goods.xml">
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/GoodsListFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_express.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="1079" column="2" lean-forward="true" selection-start-line="1079" selection-start-column="2" selection-end-line="1079" selection-end-column="2" />
-          <folding>
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13784#13785#0" expanded="true" />
-            <element signature="e#19593#19594#0" expanded="true" />
-            <element signature="e#19683#19684#0" expanded="true" />
-            <element signature="e#29751#29752#0" expanded="true" />
-            <element signature="e#29832#29833#0" expanded="true" />
-            <element signature="e#38469#38470#0" expanded="true" />
-            <element signature="e#38517#38518#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="458">
+          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/ShareProductActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/frag_goods_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="100">
+          <caret line="257" column="56" selection-start-line="257" selection-start-column="56" selection-end-line="257" selection-end-column="56" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="121" column="32" lean-forward="true" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="144" column="18" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
-          <folding>
-            <element signature="e#3464#3465#0" expanded="true" />
-            <element signature="e#3497#3498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Recommend_goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
-        </state>
-      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/ParameterFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="85" column="69" selection-start-line="85" selection-start-column="69" selection-end-line="85" selection-end-column="69" />
+        <state relative-caret-position="534">
+          <caret line="98" column="77" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_corner_trans_bottm_10.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state relative-caret-position="558">
+          <caret line="106" column="39" selection-start-line="106" selection-start-column="39" selection-end-line="106" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regionSeletor/src/main/AndroidManifest.xml" />
-    <entry file="file://$PROJECT_DIR$/regionSeletor/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/NetWorkConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="87" column="87" selection-start-line="87" selection-start-column="87" selection-end-line="87" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="276" column="28" lean-forward="true" selection-start-line="276" selection-start-column="28" selection-end-line="276" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/net/OkHttpUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="441" column="33" lean-forward="true" selection-start-line="441" selection-start-column="33" selection-end-line="441" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regionSeletor/src/main/java/com/gklee/regionselector/OnRegionDataSetListener.java" />
-    <entry file="file://$PROJECT_DIR$/regionSeletor/src/main/java/com/gklee/regionselector/RegionSelectDialog.java" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/SaleListBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsXsQgActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="91" column="48" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/PromoteBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-          <folding>
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsXsTmActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsWeiHuoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_apply.xml">
       <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/adapter/BaseQuickAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="318">
+          <caret line="68" column="24" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="24" />
+          <folding>
+            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#1750#1751#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/SettingActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/adapter/QuickAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="101" column="61" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="61" />
+        <state relative-caret-position="330">
+          <caret line="42" column="36" lean-forward="true" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+          <folding>
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_promotion.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_gridview_fm_product_single.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="64" column="42" lean-forward="true" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/CartFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/home/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="342" column="31" selection-start-line="342" selection-start-column="31" selection-end-line="342" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/AddressAddActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="570" selection-start-line="570" selection-end-line="570" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="1085" column="21" lean-forward="true" selection-start-line="1085" selection-start-column="21" selection-end-line="1085" selection-end-column="21" />
-          <folding>
-            <element signature="e#16355#16356#0" expanded="true" />
-            <element signature="e#16449#16450#0" expanded="true" />
-            <element signature="e#52517#52518#0" expanded="true" />
-            <element signature="e#52565#52566#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/view/popwindow/DiyProductInfoPopWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="157" column="52" selection-start-line="157" selection-start-column="52" selection-end-line="157" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/img_share.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/home/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="308" column="64" lean-forward="true" selection-start-line="308" selection-start-column="64" selection-end-line="308" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/MineMainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1810">
-          <caret line="341" column="17" selection-start-line="341" selection-start-column="17" selection-end-line="341" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/diy/DiyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="980" column="58" selection-start-line="980" selection-start-column="58" selection-end-line="980" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/utils/ScannerUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/utils/PermissionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="238" column="49" selection-start-line="238" selection-start-column="37" selection-end-line="238" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/ProDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="744" column="53" selection-start-line="744" selection-start-column="53" selection-end-line="744" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/utils/UIUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="584" column="23" selection-start-line="584" selection-start-column="23" selection-end-line="584" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/utils/ShareUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="719">
-          <caret line="487" column="45" selection-start-line="487" selection-start-column="45" selection-end-line="487" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bussiness_apply.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="177" column="33" lean-forward="true" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5452#5453#0" expanded="true" />
-            <element signature="e#5555#5556#0" expanded="true" />
-            <element signature="e#6083#6084#0" expanded="true" />
-            <element signature="e#6134#6135#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="149">
+          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/HomeMainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="192" column="39" selection-start-line="192" selection-start-column="39" selection-end-line="192" selection-end-column="39" />
+        <state relative-caret-position="188">
+          <caret line="218" column="5" selection-start-line="218" selection-start-column="5" selection-end-line="220" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fm_product_introduce.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="337" column="34" lean-forward="true" selection-start-line="337" selection-start-column="34" selection-end-line="337" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_gridview_fm_product.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/GoodsListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="133" column="17" lean-forward="true" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/CartFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="215" column="55" selection-start-line="215" selection-start-column="55" selection-end-line="215" selection-end-column="55" />
+          <folding>
+            <element signature="e#12180#12181#0" expanded="true" />
+            <element signature="e#12270#12271#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_goods.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsSearchResultActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="66" column="52" lean-forward="true" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_like_goods.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/GoodsBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/diy/DiyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="198" column="18" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/NetWorkConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/constant/Constance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="571" column="77" selection-start-line="571" selection-start-column="77" selection-end-line="571" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/BussinessApplyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="107" column="126" lean-forward="true" selection-start-line="107" selection-start-column="126" selection-end-line="107" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/GoodsSearchByImgActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="311" column="106" selection-start-line="311" selection-start-column="106" selection-end-line="311" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/home/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="84" column="30" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/CategoryGoodsListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="235" column="59" selection-start-line="235" selection-start-column="59" selection-end-line="235" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/ProDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7800">
+          <caret line="604" column="16" selection-start-line="604" selection-start-column="16" selection-end-line="604" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Spec_list.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Spec_goods_price.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Goods_spec_list.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/bean/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/user/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="98" column="60" selection-start-line="97" selection-start-column="22" selection-end-line="98" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/buy/ConfirmOrderActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="382" column="73" selection-start-line="382" selection-start-column="73" selection-end-line="382" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/activity/goods/SelectGoodsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="1035" column="9" selection-start-line="1035" selection-start-column="9" selection-end-line="1035" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bc/yxdc/com/ui/fragment/IntroduceGoodsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="1142" column="66" selection-start-line="1142" selection-start-column="66" selection-end-line="1142" selection-end-column="66" />
+          <folding>
+            <element signature="e#16699#16700#0" expanded="true" />
+            <element signature="e#16793#16794#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+        <state relative-caret-position="312">
+          <caret line="26" column="91" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
         </state>
       </provider>
     </entry>

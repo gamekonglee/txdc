@@ -365,4 +365,10 @@
         <item name="@android:windowExitAnimation">@anim/dialog_exit</item>    //退出时的动画
     </style>
 
+    <style name="CustomProgressDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">#ffffff</item>
+    </style>
+
 </resources>

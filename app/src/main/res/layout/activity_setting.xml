@@ -103,8 +103,8 @@
             android:id="@+id/iv_show_discount"
             android:background="@mipmap/my_xx_nor"
             android:layout_marginRight="15dp"
-            android:layout_width="25dp"
-            android:layout_height="13dp" />
+            android:layout_width="35dp"
+            android:layout_height="18.2dp" />
     </LinearLayout>
 
     <LinearLayout

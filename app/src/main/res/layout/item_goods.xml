@@ -1,4 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
@@ -46,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageViewRl"
         android:text="MS5263电灯泡"
-        android:lines="2"
+        android:maxLines="2"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:textColor="#444444"
@@ -56,6 +62,7 @@
         android:layout_marginTop="5dp"
         />
     <LinearLayout
+        android:id="@+id/ll_1"
         android:layout_below="@id/name_tv"
         android:layout_width="match_parent"
         android:layout_marginBottom="5dp"
@@ -91,7 +98,46 @@
             android:textSize="11sp"
             />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:visibility="gone"
+        android:layout_below="@+id/name_tv"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_shop_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥0.00"
+            android:textColor="#333333"
+            android:textSize="10sp"
+            />
+        <TextView
+            android:id="@+id/tv_cost_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥0.00"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/theme_red"
+            />
 
+        <TextView
+            android:id="@+id/tv_sold_2"
+            android:text="已售"
+            android:textColor="#999999"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </RelativeLayout>
-
-
+    <View
+        android:background="#f8f8f8"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+</LinearLayout>

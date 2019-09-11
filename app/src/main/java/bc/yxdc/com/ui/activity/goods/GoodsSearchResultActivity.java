@@ -63,7 +63,21 @@ public class GoodsSearchResultActivity extends BaseActivity {
             @Override
             protected void convert(BaseAdapterHelper helper, GoodsBean item) {
                 helper.setText(R.id.name_tv,item.getGoods_name());
-                helper.setText(R.id.price_tv,item.getShop_price()+"");
+                helper.setText(R.id.name_tv,item.getGoods_name());
+                View view1=helper.getView(R.id.ll_1);
+                View view2=helper.getView(R.id.ll_2);
+                if(IssApplication.isShowDiscount){
+                    view1.setVisibility(View.GONE);
+                    view2.setVisibility(View.VISIBLE);
+                    helper.setText(R.id.tv_shop_price,"市场价：￥"+item.getShop_price());
+                    helper.setText(R.id.tv_cost_price,"代理价：￥"+item.getCost_price());
+//                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
+                }else {
+                    view1.setVisibility(View.VISIBLE);
+                    view2.setVisibility(View.GONE);
+                    helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
+                }
+                helper.setText(R.id.tv_sold_2, "已售"+item.getSales_sum()+"件");
                 helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
             }

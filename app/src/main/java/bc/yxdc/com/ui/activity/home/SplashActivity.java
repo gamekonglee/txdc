@@ -81,7 +81,8 @@ public class SplashActivity extends BaseActivity{
             public void onClick(View v) {
                 if(mTimerSc !=null) mTimerSc.cancel();
                 boolean remember= MyShare.get(SplashActivity.this).getBoolean(Constance.apply_remember);
-                if(!remember){
+                boolean is_submit_bussiness_apply=MyShare.get(SplashActivity.this).getBoolean(Constance.is_submit_bussiness_apply);
+                if(!remember&&!is_submit_bussiness_apply){
                     showDialog();
                 }else {
                     startAct();

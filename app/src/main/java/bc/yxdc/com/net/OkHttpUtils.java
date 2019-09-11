@@ -811,4 +811,12 @@ public class OkHttpUtils  {
         okHttpClient.newCall(request).enqueue(callback);
 
     }
+
+    public static void getSpot_goods(int page, Callback callback) {
+        OkHttpClient okHttpClient=getOkHttpInstance();
+        String url=NetWorkConst.URL_SPOTGOODS_LIST+"?page="+page;
+        Request request=new Request.Builder().get().url(url).build();
+        okHttpClient.newCall(request).enqueue(callback);
+
+    }
 }

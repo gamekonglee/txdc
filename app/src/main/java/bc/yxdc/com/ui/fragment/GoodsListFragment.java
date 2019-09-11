@@ -3,6 +3,8 @@ package bc.yxdc.com.ui.fragment;
 import android.app.Dialog;
 import android.content.Intent;
 import androidx.databinding.DataBindingUtil;
+
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
@@ -30,6 +32,12 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -158,9 +166,19 @@ public class GoodsListFragment extends BaseFragment implements SwipeRefreshLayou
         return view;
 
     }
-
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refreshData(String event){
+        if(event.equals("refresh")){
+            LogUtils.logE("refresh",event);
+            onRefresh();
+        }
+    }
     @Override
     public void initUI() {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+
         topRightBtn = getViewAndClick(R.id.topRightBtn);
         popularityTv = getViewAndClick(R.id.popularityTv);
         newTv = getViewAndClick(R.id.newTv);
@@ -1042,12 +1060,19 @@ public class GoodsListFragment extends BaseFragment implements SwipeRefreshLayou
                 holder.groupbuy_tv = (TextView) convertView.findViewById(R.id.groupbuy_tv);
                 holder.old_price_tv = (TextView) convertView.findViewById(R.id.old_price_tv);
                 holder.price_tv = (TextView) convertView.findViewById(R.id.price_tv);
+                holder.tv_shop_price=convertView.findViewById(R.id.tv_shop_price);
+                holder.tv_cost_price=convertView.findViewById(R.id.tv_cost_price);
+                holder.view1=convertView.findViewById(R.id.ll_1);
+                holder.view2=convertView.findViewById(R.id.ll_2);
+                holder.tv_sold2=convertView.findViewById(R.id.tv_sold_2);
                 holder.tv_sold=convertView.findViewById(R.id.tv_sold);
+
                 if(columns!=1){
                     RelativeLayout.LayoutParams lLp = (RelativeLayout.LayoutParams) holder.imageView.getLayoutParams();
                     float h = (mScreenWidth - ConvertUtil.dp2px(getActivity(), 45.8f)) / 2;
                     lLp.height = (int) h;
                     holder.imageView.setLayoutParams(lLp);
+
                 }
                 convertView.setTag(holder);
             } else {
@@ -1057,8 +1082,29 @@ public class GoodsListFragment extends BaseFragment implements SwipeRefreshLayou
                 String name = goodsBeanList.get(position).getGoods_name();
                 holder.textView.setText(name);
                 //                holder.imageView.setImageResource(R.drawable.bg_default);
-                ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+goodsBeanList.get(position).getGoods_id()
-                        , holder.imageView);
+//                ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+goodsBeanList.get(position).getGoods_id()
+//                        , holder.imageView);
+                ImageLoader.getInstance().loadImage(NetWorkConst.IMAGE_URL + goodsBeanList.get(position).getGoods_id(), new ImageLoadingListener() {
+                    @Override
+                    public void onLoadingStarted(String s, View view) {
+
+                    }
+
+                    @Override
+                    public void onLoadingFailed(String s, View view, FailReason failReason) {
+
+                    }
+
+                    @Override
+                    public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+                        holder.imageView.setImageBitmap(bitmap);
+                    }
+
+                    @Override
+                    public void onLoadingCancelled(String s, View view) {
+
+                    }
+                });
 
 //                JSONObject groupBuyObject = goodses.getJSONObject(position).getJSONObject(Constance.group_buy);
 //                int isFinished=-1;
@@ -1081,12 +1127,28 @@ public class GoodsListFragment extends BaseFragment implements SwipeRefreshLayou
 //                }
 //                old_Price= Double.parseDouble(goodses.getJSONObject(position).getString(Constance.current_price));
                 if(IssApplication.isShowDiscount){
-                    holder.price_tv.setText("￥" + goodsBeanList.get(position).getCost_price());
+                    if(order_sv.getNumColumns()!=1){
+                        holder.view1.setVisibility(View.GONE);
+                        holder.view2.setVisibility(View.VISIBLE);
+                        holder.tv_shop_price.setText("市场价：￥"+goodsBeanList.get(position).getShop_price());
+                        holder.tv_cost_price.setText("代理价：￥"+goodsBeanList.get(position).getCost_price());
+                        holder.tv_sold2.setText("已售"+goodsBeanList.get(position).getSales_sum()+"件");
+                    }else {
+
+                    }
+
+//                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
                 }else {
-                    holder.price_tv.setText("￥" + goodsBeanList.get(position).getShop_price());
+                    if(order_sv.getNumColumns()!=1){
+                    holder.view1.setVisibility(View.VISIBLE);
+                    holder.view2.setVisibility(View.GONE);
+                    holder.price_tv.setText("￥"+goodsBeanList.get(position).getShop_price());
+
+                    }
                 }
 
                 holder.tv_sold.setText("已售"+goodsBeanList.get(position).getSales_sum()+"件");
+
                 old_Price=old_Price*1.6;
                 DecimalFormat df=new DecimalFormat("###.00");
                 holder.old_price_tv.setText("￥" + df.format(old_Price));
@@ -1117,9 +1179,21 @@ public class GoodsListFragment extends BaseFragment implements SwipeRefreshLayou
             TextView old_price_tv;
             TextView price_tv;
             TextView tv_sold;
+            View view1;
+            View view2;
+            TextView tv_sold2;
+            TextView tv_shop_price;
+            TextView tv_cost_price;
 
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

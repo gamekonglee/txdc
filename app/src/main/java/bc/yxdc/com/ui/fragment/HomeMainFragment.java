@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +40,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.umeng.analytics.MobclickAgent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,6 +79,7 @@ import bc.yxdc.com.ui.activity.goods.ProDetailActivity;
 import bc.yxdc.com.ui.activity.goods.SelectGoodsActivity;
 import bc.yxdc.com.ui.activity.user.MessageHomeActivity;
 import bc.yxdc.com.ui.view.EndOfGridView;
+import bc.yxdc.com.ui.view.PMSwipeRefreshLayout;
 import bc.yxdc.com.utils.ImageUtil;
 import bc.yxdc.com.utils.LogUtils;
 import bc.yxdc.com.utils.MyShare;
@@ -95,7 +103,7 @@ import okhttp3.Response;
  * Created by gamekonglee on 2018/8/14.
  */
 
-public class HomeMainFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class HomeMainFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
     //首页数据
     private static final int TYPE_HOME_TYPE = 0;
     //限时抢购
@@ -168,10 +176,12 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
     @BindView(R.id.rl_home_top) View rl_home_top;
     @BindView(R.id.gv_cnxh)GridView gv_cnxh;
     @BindView(R.id.gv_rm)GridView gv_rm;
-    @BindView(R.id.drawerlayout)DrawerLayout drawerlayout;
+//    @BindView(R.id.drawerlayout)DrawerLayout drawerlayout;
     @BindView(R.id.fl_filter)View fl_filter;
     @BindView(R.id.lv_filter_type)ListView lv_filter_type;
     @BindView(R.id.ll_weihuo)LinearLayout ll_weihuo;
+    @BindView(R.id.pulltorefresh)
+    PMSwipeRefreshLayout pulltorefresh;
     private List<GoodsBean >xianhuo_goods;
     private List<Ad> ad;
 //    private List<Promotion_goods >promotion_goods;
@@ -206,7 +216,14 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void initUI() {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
 
+        pulltorefresh.setColorSchemeColors(Color.BLUE,Color.GREEN,Color.YELLOW,Color.RED);
+        pulltorefresh.setOnRefreshListener(this);
+        pulltorefresh.setRefreshing(false);
+        pulltorefresh.setScrollUpChild(sc_home);
         rlp = (RelativeLayout.LayoutParams) mConvenientBanner.getLayoutParams();
         int mScreenWidth = getActivity().getResources().getDisplayMetrics().widthPixels;
         rlp.width = mScreenWidth;
@@ -265,11 +282,20 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
             @Override
             protected void convert(BaseAdapterHelper helper, GoodsBean item) {
                 helper.setText(R.id.name_tv,item.getGoods_name());
+                View view1=helper.getView(R.id.ll_1);
+                View view2=helper.getView(R.id.ll_2);
                 if(IssApplication.isShowDiscount){
-                    helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
+                    view1.setVisibility(View.GONE);
+                    view2.setVisibility(View.VISIBLE);
+                    helper.setText(R.id.tv_shop_price,"市场价：￥"+item.getShop_price());
+                    helper.setText(R.id.tv_cost_price,"代理价：￥"+item.getCost_price());
+//                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
                 }else {
-                helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
+                    view1.setVisibility(View.VISIBLE);
+                    view2.setVisibility(View.GONE);
+                    helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
                 }
+                helper.setText(R.id.tv_sold_2, "已售"+item.getSales_sum()+"件");
                 helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
 
@@ -279,32 +305,40 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
             @Override
             protected void convert(BaseAdapterHelper helper, Hot_goods item) {
                 helper.setText(R.id.name_tv,item.getGoods_name());
+                View view1=helper.getView(R.id.ll_1);
+                View view2=helper.getView(R.id.ll_2);
                 if(IssApplication.isShowDiscount){
-                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
+                    view1.setVisibility(View.GONE);
+                    view2.setVisibility(View.VISIBLE);
+                    helper.setText(R.id.tv_shop_price,"市场价：￥"+item.getShop_price());
+                    helper.setText(R.id.tv_cost_price,"代理价：￥"+item.getCost_price());
+//                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
                 }else {
+                    view1.setVisibility(View.VISIBLE);
+                    view2.setVisibility(View.GONE);
                     helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
                 }
+                helper.setText(R.id.tv_sold_2, "已售"+item.getSales_sum()+"件");
                 helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
-
             }
         };
         gv_type.setAdapter(categoryBeanQuickAdapter);
         gv_cnxh.setAdapter(adapterCnxh);
         gv_rm.setAdapter(adapterRm);
-        ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(getActivity(),drawerlayout,R.string.open,R.string.close){
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-
-        drawerlayout.addDrawerListener(actionBarDrawerToggle);
+//        ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(getActivity(),drawerlayout,R.string.open,R.string.close){
+//            @Override
+//            public void onDrawerOpened(View drawerView) {
+//                super.onDrawerOpened(drawerView);
+//            }
+//
+//            @Override
+//            public void onDrawerClosed(View drawerView) {
+//                super.onDrawerClosed(drawerView);
+//            }
+//        };
+//
+//        drawerlayout.addDrawerListener(actionBarDrawerToggle);
         filterAdapter = new QuickAdapter<FilterAttr>(getActivity(), R.layout.item_filter) {
             @Override
             protected void convert(BaseAdapterHelper helper, final FilterAttr itemAttr) {
@@ -613,8 +647,9 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 JSONObject res=new JSONObject(response.body().string());
+                LogUtils.logE("xianhuo",res.toString());
                 if(res.getInt(Constance.status)==1){
-                    JSONArray jsonArray=res.getJSONObject(Constance.result).getJSONArray(Constance.goods_list);
+                    JSONArray jsonArray=res.getJSONArray(Constance.result);
                     for(int i=0;i<jsonArray.length();i++){
                         xianhuo_goods.add(new Gson().fromJson(jsonArray.getJSONObject(i).toString(),GoodsBean.class));
                     }
@@ -731,25 +766,35 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                         newGoodsBeans.add(new Gson().fromJson(jsonArray.getJSONObject(i).toString(),GoodsBean.class));
                     }
                     getActivity().runOnUiThread(new Runnable() {
+
+                        private View view;
+
                         @Override
                         public void run() {
                             if(newGoodsBeans!=null&&newGoodsBeans.size()>0){
                                 ll_newgoods.removeAllViews();
                                 int width=(UIUtils.getScreenWidth(getActivity())-UIUtils.dip2PX(35))/3;
-                                int height=UIUtils.dip2PX(195-20);
-                                boolean isShowDiscout= MyShare.get(getActivity()).getBoolean(Constance.isShowDiscount);
+                                int height=UIUtils.dip2PX(180);
                                 for(int i=0;i<newGoodsBeans.size();i++){
-                                    View view=View.inflate(getActivity(),R.layout.item_promotion,null);
-                                    ImageView iv_img=view.findViewById(R.id.iv_img);
-                                    TextView tv_name=view.findViewById(R.id.tv_name);
-                                    TextView tv_price=view.findViewById(R.id.tv_price);
-                                    TextView tv_sold=view.findViewById(R.id.tv_sold);
+
+                                    if(IssApplication.isShowDiscount){
+                                        view =View.inflate(getActivity(),R.layout.item_promotion_2,null);
+                                    }else {
+                                        view =View.inflate(getActivity(),R.layout.item_promotion,null);
+                                    }
+                                    ImageView iv_img= view.findViewById(R.id.iv_img);
+                                    TextView tv_name= view.findViewById(R.id.tv_name);
+                                    TextView tv_price= view.findViewById(R.id.tv_price);
+                                    TextView tv_sold= view.findViewById(R.id.tv_sold);
+                                    TextView tv_cost_price= view.findViewById(R.id.tv_cost_price);
                                     tv_name.setText(newGoodsBeans.get(i).getGoods_name());
                                     String price=newGoodsBeans.get(i).getShop_price();
-                                    if(isShowDiscout){
-                                        price=newGoodsBeans.get(i).getCost_price();
+                                    if(IssApplication.isShowDiscount){
+                                        tv_price.setText("市场价：¥"+price);
+                                    }else {
+                                    tv_price.setText("¥"+price);
                                     }
-                                    tv_price.setText("¥"+(int)Float.parseFloat(price));
+                                    tv_cost_price.setText("代理价：¥"+newGoodsBeans.get(i).getCost_price());
                                     tv_sold.setText("已售"+newGoodsBeans.get(i).getSales_sum()+"件");
                                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+newGoodsBeans.get(i).getGoods_id(),iv_img,IssApplication.getImageLoaderOption());
                                     LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(width,height);
@@ -884,17 +929,27 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
             ll_xianhuo.removeAllViews();
             boolean isShowDiscount=MyShare.get(getActivity()).getBoolean(Constance.isShowDiscount);
             for(int i=0;i<xianhuo_goods.size();i++){
-                View view=View.inflate(getActivity(),R.layout.item_news_goods,null);
+                View view;
+                if(IssApplication.isShowDiscount){
+                    view=View.inflate(getActivity(),R.layout.item_news_goods_2,null);
+                }else {
+                    view=View.inflate(getActivity(),R.layout.item_news_goods,null);
+                }
                 ImageView iv_img=view.findViewById(R.id.iv_img);
                 TextView tv_name=view.findViewById(R.id.tv_name);
                 TextView tv_price=view.findViewById(R.id.tv_price);
                 TextView tv_sold=view.findViewById(R.id.tv_sold);
+                TextView tv_cost_price=view.findViewById(R.id.tv_cost_price);
+
                 tv_name.setText(xianhuo_goods.get(i).getGoods_name());
                 String price=xianhuo_goods.get(i).getShop_price();
-                if(isShowDiscount){
-                    price=xianhuo_goods.get(i).getCost_price();
+                if(IssApplication.isShowDiscount){
+                    tv_price.setText("市场价：¥"+xianhuo_goods.get(i).getShop_price());
+                    tv_cost_price.setText("代理价：￥"+xianhuo_goods.get(i).getCost_price());
+                }else {
+                    tv_price.setText("¥"+price);
                 }
-                tv_price.setText("¥"+price);
+
                 tv_sold.setText("已售"+xianhuo_goods.get(i).getSales_sum()+"件");
                 ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+xianhuo_goods.get(i).getGoods_id(),iv_img,IssApplication.getImageLoaderOption());
                 LinearLayout.LayoutParams layoutParams=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -957,7 +1012,8 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                 OkHttpUtils.getHomeNewGoods(1,callback);
                 break;
             case TYPE_HOME_XIANHUO:
-                OkHttpUtils.getGoodsList("","","","","",1,callback);
+//                OkHttpUtils.getGoodsList("","","","","",1,callback);
+                OkHttpUtils.getSpot_goods(1,callback);
                 break;
             case TYPE_HOME_WEIHUO:
                 OkHttpUtils.getGoodsWeiHuo(callback);
@@ -1003,7 +1059,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
 //                getCategory();
 //                changeTYPE();
 //                break;
-            case R.id.tv_tail:
+
             case R.id.tv_tail_all:
                 startActivity(new Intent(getActivity(), GoodsWeiHuoActivity.class));
                 break;
@@ -1030,6 +1086,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                 startActivity(new Intent(getActivity(), GoodsXsTmActivity.class));
                 break;
             case R.id.tv_xianhuo_all:
+            case R.id.tv_tail:
                 Intent intent2=new Intent(getActivity(),SelectGoodsActivity.class);
                 intent2.putExtra(Constance.isNew,true);
                 intent2.putExtra(Constance.isXianHuo,true);
@@ -1063,7 +1120,7 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                 filterAdapter.notifyDataSetChanged();
                 break;
             case R.id.tv_ensure:
-                drawerlayout.closeDrawers();
+//                drawerlayout.closeDrawers();
                 intent=new Intent(getActivity(),SelectGoodsActivity.class);
                 startActivity(intent);
         }
@@ -1119,12 +1176,20 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
                 @Override
                 protected void convert(BaseAdapterHelper helper, GoodsBean item) {
                     helper.setText(R.id.name_tv,item.getGoods_name());
+                    View view1=helper.getView(R.id.ll_1);
+                    View view2=helper.getView(R.id.ll_2);
                     if(IssApplication.isShowDiscount){
-                        helper.setText(R.id.price_tv,item.getCost_price()+"");
+                        view1.setVisibility(View.GONE);
+                        view2.setVisibility(View.VISIBLE);
+                        helper.setText(R.id.tv_shop_price,"市场价：￥"+item.getShop_price());
+                        helper.setText(R.id.tv_cost_price,"代理价：￥"+item.getCost_price());
+//                helper.setText(R.id.price_tv,"¥"+item.getCost_price()+"");
                     }else {
-                        helper.setText(R.id.price_tv,item.getShop_price()+"");
+                        view1.setVisibility(View.VISIBLE);
+                        view2.setVisibility(View.GONE);
+                        helper.setText(R.id.price_tv,"¥"+item.getShop_price()+"");
                     }
-
+                    helper.setText(R.id.tv_sold_2, "已售"+item.getSales_sum()+"件");
                     helper.setText(R.id.tv_sold, "已售"+item.getSales_sum()+"件");
                     ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),((ImageView)helper.getView(R.id.imageView)), IssApplication.getImageLoaderOption());
                 }
@@ -1223,6 +1288,25 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refreshData(String event){
+        if(event.equals("refresh")){
+            LogUtils.logE("refresh",event);
+            pulltorefresh.setRefreshing(true);
+            onRefresh();
+        }
+    }
+    @Override
+    public void onRefresh() {
+        getHome();
+        getXianHuo();
+        getPromotion();
+        getNewGoods();
+        getCnXh();
+//        getTail();
+//        getCategory();
+        pulltorefresh.setRefreshing(false);
+    }
 
     class NetworkImageHolderView implements CBPageAdapter.Holder<String> {
         private ImageView imageView;
@@ -1276,6 +1360,16 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
     public void setPause() {
         // 停止翻页
         mConvenientBanner.stopTurning();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            EventBus.getDefault().unregister(this);
+        }catch (Exception e){
+
+        }
     }
 
     @Override

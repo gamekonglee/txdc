@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+
 import app.txdc.shop.R;
 import bc.yxdc.com.base.BaseActivity;
 import bc.yxdc.com.bean.User;
@@ -93,6 +95,9 @@ public class SettingActivity extends BaseActivity{
                         MyShare.get(SettingActivity.this).putString(Constance.user_id,"");
                         IssApplication.mUserBean="";
                         MainActivity.currentTab=0;
+                        MyShare.get(SettingActivity.this).putBoolean(Constance.isShowDiscount,false);
+                        IssApplication.isShowDiscount=false;
+                        EventBus.getDefault().post("refresh");
                         finish();
                     }
                 });
@@ -106,6 +111,7 @@ public class SettingActivity extends BaseActivity{
                     iv_show_discount.setBackgroundResource(R.mipmap.my_xx_nor);
                 }
                 MyShare.get(this).putBoolean(Constance.isShowDiscount,isShowDiscount);
+                EventBus.getDefault().post("refresh");
                 break;
         }
     }

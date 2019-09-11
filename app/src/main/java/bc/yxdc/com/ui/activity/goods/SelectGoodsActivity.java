@@ -2,6 +2,7 @@ package bc.yxdc.com.ui.activity.goods;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
@@ -27,6 +28,8 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.IOException;
@@ -47,6 +50,7 @@ import bc.yxdc.com.bean.Goods_spec_list;
 import bc.yxdc.com.bean.Spec_goods_price;
 import bc.yxdc.com.bean.Spec_list;
 import bc.yxdc.com.constant.Constance;
+import bc.yxdc.com.constant.Constant;
 import bc.yxdc.com.constant.NetWorkConst;
 import bc.yxdc.com.global.IssApplication;
 import bc.yxdc.com.net.OkHttpUtils;
@@ -142,6 +146,7 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
     private GoodsListResult goodsListResult;
     private List<String> filter_choosen;
     private boolean isBottom;
+    private int urlPos;
 
     @Override
     protected void initData() {
@@ -854,7 +859,9 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
                 goods.setOriginal_img(goodsBeanList.get(currentP).getOriginal_img());
                 goods.setShop_price(goodsBeanList.get(currentP).getShop_price());
                 goods.setGoods_name(goodsBeanList.get(currentP).getGoods_name());
-                goods.c_url=goodsBeanList.get(currentP).c_url;
+                List<Spec_list> spec_lists=goods_spec_lists.get(urlPos).getSpec_list();
+
+                goods.c_url= spec_lists.get(goods_spec_lists.get(urlPos).currentP).getSrc();
                 goods.c_property=goodsBeanList.get(currentP).c_property;
                 IssApplication.mSelectProducts.add(goods);
                 mProAdapter.notifyDataSetChanged();
@@ -864,7 +871,23 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
 //        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 //        imm.hideSoftInputFromWindow(getActivity().getWindow().getDecorView().getWindowToken(), 0);
         ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+ProDetailActivity.goods.getGoods().getGoods_id(),iv_img);
-
+        urlPos = -1;
+        for(int i=0;i<goods_spec_lists.size();i++){
+            Goods_spec_list temp=goods_spec_lists.get(i);
+            if(temp!=null){
+                List<Spec_list> spec_lists=temp.getSpec_list();
+                for(int j=0;j<spec_lists.size();j++){
+                    String url=spec_lists.get(j).getSrc();
+                    if(url!=null&&!TextUtils.isEmpty(url)&&!url.equals("null")){
+                        urlPos =i;
+                        break;
+                    }
+                }
+                if(urlPos !=-1){
+                    break;
+                }
+            }
+        }
         tv_name.setText(goodsBeanList.get(currentP).getGoods_name());
         for(int i=0;i<spec_goods_prices.size();i++){
             if(i>0){
@@ -1034,8 +1057,8 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
-            if (convertView == null) {
                 int columns=order_sv.getNumColumns();
+            if (convertView == null) {
                 if(columns==1){
                     convertView = View.inflate(SelectGoodsActivity.this, R.layout.item_gridview_fm_product_single, null);
                 }else {
@@ -1049,6 +1072,11 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
                 holder.old_price_tv = (TextView) convertView.findViewById(R.id.old_price_tv);
                 holder.price_tv = (TextView) convertView.findViewById(R.id.price_tv);
                 holder.tv_sold=convertView.findViewById(R.id.tv_sold);
+                holder.tv_cost_price=convertView.findViewById(R.id.tv_cost_price);
+                holder.tv_shop_price=convertView.findViewById(R.id.tv_shop_price);
+                holder.tv_sold2=convertView.findViewById(R.id.tv_sold_2);
+                holder.view1=convertView.findViewById(R.id.ll_1);
+                holder.view2=convertView.findViewById(R.id.ll_2);
                 if(columns!=1){
                     RelativeLayout.LayoutParams lLp = (RelativeLayout.LayoutParams) holder.imageView.getLayoutParams();
                 float h = (mScreenWidth - ConvertUtil.dp2px(SelectGoodsActivity.this, 45.8f)) / 2;
@@ -1063,8 +1091,28 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
                 String name = goodsBeanList.get(position).getGoods_name();
                 holder.textView.setText(name);
                 //                holder.imageView.setImageResource(R.drawable.bg_default);
-                ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+goodsBeanList.get(position).getGoods_id()
-                        , holder.imageView);
+                ImageLoader.getInstance().loadImage(NetWorkConst.IMAGE_URL + goodsBeanList.get(position).getGoods_id()
+                        , new ImageLoadingListener() {
+                            @Override
+                            public void onLoadingStarted(String s, View view) {
+
+                            }
+
+                            @Override
+                            public void onLoadingFailed(String s, View view, FailReason failReason) {
+
+                            }
+
+                            @Override
+                            public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+                                holder.imageView.setImageBitmap(bitmap);
+                            }
+
+                            @Override
+                            public void onLoadingCancelled(String s, View view) {
+
+                            }
+                        });
 
 //                JSONObject groupBuyObject = goodses.getJSONObject(position).getJSONObject(Constance.group_buy);
 //                int isFinished=-1;
@@ -1087,16 +1135,30 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
 //                }
 //                old_Price= Double.parseDouble(goodses.getJSONObject(position).getString(Constance.current_price));
                 if(IssApplication.isShowDiscount){
-                    holder.price_tv.setText("￥" + goodsBeanList.get(position).getCost_price());
+                    if (columns != 1) {
+                        holder.tv_shop_price.setText("市场价：￥"+goodsBeanList.get(position).getShop_price());
+                        holder.tv_cost_price.setText("代理价：￥" + goodsBeanList.get(position).getCost_price());
+                        holder.tv_sold2.setText("已售"+goodsBeanList.get(position).getSales_sum()+"件");
+                        holder.view1.setVisibility(View.GONE);
+                        holder.view2.setVisibility(View.VISIBLE);
+                    }else {
+
+                        holder.price_tv.setText("代理价：￥" + goodsBeanList.get(position).getCost_price());
+                        holder.old_price_tv.setText("市场价：￥"+goodsBeanList.get(position).getShop_price());
+                    }
                 }else {
+                    if(columns!=1){
+                        holder.view1.setVisibility(View.VISIBLE);
+                        holder.view2.setVisibility(View.GONE);
+                    }
                     holder.price_tv.setText("￥" + goodsBeanList.get(position).getShop_price());
                 }
 
                 holder.tv_sold.setText("已售"+goodsBeanList.get(position).getSales_sum()+"件");
-                old_Price=old_Price*1.6;
-                DecimalFormat df=new DecimalFormat("###.00");
-                holder.old_price_tv.setText("￥" + df.format(old_Price));
-                holder.old_price_tv.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+//                old_Price=old_Price*1.6;
+//                DecimalFormat df=new DecimalFormat("###.00");
+//                holder.old_price_tv.setText("￥" + df.format(old_Price));
+//                holder.old_price_tv.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
                 holder.check_iv.setVisibility(View.GONE);
                 if (isSelectGoods) {
                     for (int i = 0; i < IssApplication.mSelectProducts.size(); i++) {
@@ -1123,6 +1185,11 @@ public class  SelectGoodsActivity extends BaseActivity implements EndOfListView.
             TextView old_price_tv;
             TextView price_tv;
             TextView tv_sold;
+            TextView tv_sold2;
+            View view1;
+            View view2;
+            TextView tv_shop_price;
+            TextView tv_cost_price;
 
         }
     }

@@ -1,8 +1,10 @@
 package bc.yxdc.com.ui.fragment;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.net.http.SslError;
 import android.os.Build;
@@ -37,6 +39,8 @@ import com.bigkoo.convenientbanner.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -72,6 +76,7 @@ import bc.yxdc.com.ui.activity.diy.DiyActivity;
 import bc.yxdc.com.ui.activity.goods.ProDetailActivity;
 import bc.yxdc.com.ui.activity.user.LoginActivity;
 import bc.yxdc.com.ui.view.AutoLinefeedLayout;
+import bc.yxdc.com.ui.view.MyProgressDialog;
 import bc.yxdc.com.utils.AppUtils;
 import bc.yxdc.com.utils.LogUtils;
 import bc.yxdc.com.utils.MyShare;
@@ -161,6 +166,8 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
     private int numColumn;
     private int warn_number;
     private TextView tv_zhibao;
+    private ProgressDialog progressDialog;
+    private MyProgressDialog myProgressDialog;
 
     @Nullable
     @Override
@@ -862,7 +869,33 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
                         String url="";
                         url=spec_lists.get(finalY).getSrc();
                         if(url!=null&&!TextUtils.isEmpty(url)){
-                            ImageLoader.getInstance().displayImage(NetWorkConst.API_HOST+url,iv_img);
+//                            ImageLoader.getInstance().displayImage(NetWorkConst.API_HOST+url,iv_img);
+                            ImageLoader.getInstance().loadImage(NetWorkConst.API_HOST + url, new ImageLoadingListener() {
+                                @Override
+                                public void onLoadingStarted(String s, View view) {
+//                                    progressDialog = ProgressDialog.show(getActivity(),"","加载中");
+                                    myProgressDialog = new MyProgressDialog(getActivity());
+                                    myProgressDialog.show();
+
+                                }
+
+                                @Override
+                                public void onLoadingFailed(String s, View view, FailReason failReason) {
+//                                    progressDialog.dismiss();
+                                    myProgressDialog.dismiss();
+                                }
+
+                                @Override
+                                public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+//                                    progressDialog.dismiss();
+                                    myProgressDialog.dismiss();
+                                    iv_img.setImageBitmap(bitmap);
+                                }
+
+                                @Override
+                                public void onLoadingCancelled(String s, View view) {
+                                }
+                            });
                         }
                         String str="";
                         for(int j=0;j<goods_spec_lists.size();j++) {
@@ -920,6 +953,8 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
 
                         tv_store_count.setText("工厂库存（"+spec_goods_prices.get(currentAttrPosi).getStore_count()+"）");
                         tv_store_count_dialog.setText("库存："+spec_goods_prices.get(currentAttrPosi).getStore_count());
+//                        String src=goods_spec_lists.get(finalI).getSpec_list().get(finalY).getSrc();
+
 
 //                        adapter.replaceAll(spec_lists);
                         }
@@ -1073,12 +1108,30 @@ public class  IntroduceGoodsFragment extends BaseFragment implements View.OnClic
                 break;
             }
         }
-
-        String price=spec_goods_prices.get(currentAttrPosi).getPrice();
+        String currentPrice=ProDetailActivity.goods.getGoods().getShop_price();
         if(IssApplication.isShowDiscount){
-            price=spec_goods_prices.get(currentAttrPosi).getCost_price();
+            currentPrice=ProDetailActivity.goods.getGoods().getCost_price();
         }
-        tv_price.setText("¥"+price);
+        for(int i=0;i<spec_goods_prices.size();i++){
+            String price=spec_goods_prices.get(i).getPrice();
+            if(IssApplication.isShowDiscount){
+                price=spec_goods_prices.get(i).getCost_price();
+            }
+            if(price.equals(currentPrice)){
+                currentAttrPosi=i;
+                break;
+            }
+        }
+        for(int i=0;i<goods_spec_lists.size();i++){
+            for(int j=0;j<goods_spec_lists.get(i).getSpec_list().size();j++){
+                if(spec_goods_prices.get(currentAttrPosi).getKey().contains(goods_spec_lists.get(i).getSpec_list().get(j).getItem_id()+"")){
+                    tvListList.get(i).get(j).performClick();
+                }
+            }
+        }
+
+
+        tv_price.setText("¥"+currentPrice);
         tv_store_count_dialog.setText("库存："+spec_goods_prices.get(currentAttrPosi).getStore_count());
         String unit=spec_goods_prices.get(currentAttrPosi).getUnit();
         warn_number = spec_goods_prices.get(currentAttrPosi).getWarn_number();

@@ -26,6 +26,7 @@ import bc.yxdc.com.base.BaseActivity;
 import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.net.OkHttpUtils;
 import bc.yxdc.com.ui.activity.home.MainActivity;
+import bc.yxdc.com.utils.MyShare;
 import bc.yxdc.com.utils.MyToast;
 import bocang.json.JSONArray;
 import bocang.json.JSONObject;
@@ -104,6 +105,7 @@ public class BussinessApplyActivity extends BaseActivity {
                             @Override
                             public void run() {
                         MyToast.show(BussinessApplyActivity.this,"提交成功！");
+                                MyShare.get(BussinessApplyActivity.this).putBoolean(Constance.is_submit_bussiness_apply,true);
 
                             }
                         });

@@ -331,6 +331,7 @@
                             android:background="#FFFFFF"
                             android:textColor="#999999"
                             android:layout_centerInParent="true"
+                            android:layout_marginLeft="35dp"
                             android:textSize="14sp"
                             android:text="请选择购买数量分类"
                             />

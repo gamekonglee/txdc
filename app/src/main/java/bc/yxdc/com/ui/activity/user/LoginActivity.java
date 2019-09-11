@@ -44,6 +44,7 @@ import bc.yxdc.com.bean.AuthResult;
 import bc.yxdc.com.bean.LoginResult;
 import bc.yxdc.com.bean.User;
 import bc.yxdc.com.constant.Constance;
+import bc.yxdc.com.global.IssApplication;
 import bc.yxdc.com.net.OkHttpUtils;
 import bc.yxdc.com.ui.activity.home.MainActivity;
 import bc.yxdc.com.ui.view.TimerButton;
@@ -121,7 +122,10 @@ public class LoginActivity extends BaseActivity {
 
                                                 MyShare.get(LoginActivity.this).putString(Constance.TOKEN, token);
                                                 MyShare.get(LoginActivity.this).putString(Constance.user_id,user_id);
+                                                MyShare.get(LoginActivity.this).putBoolean(Constance.isShowDiscount,false);
+                                                IssApplication.isShowDiscount=false;
                                                 EventBus.getDefault().postSticky(new User());
+                                                EventBus.getDefault().post("refresh");
                                                 IntentUtil.startActivity(LoginActivity.this, MainActivity.class, true);
                                             }else {
                                                 MyToast.show(LoginActivity.this,reJ.getString(Constance.msg));
@@ -368,7 +372,10 @@ public class LoginActivity extends BaseActivity {
 
                                                         MyShare.get(LoginActivity.this).putString(Constance.TOKEN, token);
                                                         MyShare.get(LoginActivity.this).putString(Constance.user_id,user_id);
+                                                        MyShare.get(LoginActivity.this).putBoolean(Constance.isShowDiscount,false);
+                                                        IssApplication.isShowDiscount=false;
                                                         EventBus.getDefault().postSticky(new User());
+                                                        EventBus.getDefault().post("refresh");
                                                         IntentUtil.startActivity(LoginActivity.this, MainActivity.class, true);
                                                     }else {
                                                         MyToast.show(LoginActivity.this,reJ.getString(Constance.msg));
@@ -475,8 +482,11 @@ public class LoginActivity extends BaseActivity {
                         MyShare.get(LoginActivity.this).putString(Constance.TOKEN, token);
                         MyShare.get(LoginActivity.this).putString(Constance.user_id,user_id);
 //                        EventBus.getDefault().postSticky(new LoginResult(1));
+                        MyShare.get(LoginActivity.this).putBoolean(Constance.isShowDiscount,false);
+                        IssApplication.isShowDiscount=false;
                         IntentUtil.startActivity(LoginActivity.this, MainActivity.class, true);
                         EventBus.getDefault().postSticky(new User());
+                        EventBus.getDefault().post("refresh");
                     }else {
                         runOnUiThread(new Runnable() {
                             @Override
@@ -565,7 +575,10 @@ public class LoginActivity extends BaseActivity {
                                                     MyShare.get(LoginActivity.this).putString(Constance.TOKEN, token);
                                                     MyShare.get(LoginActivity.this).putString(Constance.user_id,user_id);
 //                        EventBus.getDefault().postSticky(new LoginResult(1));
+                                                    MyShare.get(LoginActivity.this).putBoolean(Constance.isShowDiscount,false);
+                                                    IssApplication.isShowDiscount=false;
                                                     EventBus.getDefault().postSticky(new User());
+                                                    EventBus.getDefault().post("refresh");
                                                     IntentUtil.startActivity(LoginActivity.this, MainActivity.class, true);
                                                 }else {
                                                     MyToast.show(LoginActivity.this,reJ.getString(Constance.msg));

@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: cn.qqtheme.framework:WheelPicker:1.5.6.20190131@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/3c8ed7a41393760efd8b21de5018e4fa/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/221b672b1e4ceae431bd09452d98cfab/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/3c8ed7a41393760efd8b21de5018e4fa/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/3c8ed7a41393760efd8b21de5018e4fa/res" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/221b672b1e4ceae431bd09452d98cfab/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/221b672b1e4ceae431bd09452d98cfab/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

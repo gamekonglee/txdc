@@ -1,6 +1,7 @@
 package bc.yxdc.com.ui.activity.goods;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.umeng.analytics.MobclickAgent;
 
 import java.io.IOException;
@@ -178,39 +181,127 @@ public class CategoryGoodsListActivity extends BaseActivity implements SwipeRefr
     }
 
     private void initAdapter() {
-        if(gv_category.getNumColumns()!=1){
             adapter = new QuickAdapter<GoodsBean>(this, R.layout.item_gridview_fm_product) {
                 @Override
                 protected void convert(BaseAdapterHelper helper, GoodsBean item) {
-                    helper.setText(R.id.name_tv,item.getGoods_name());
-                    ImageView imageView=helper.getView(R.id.imageView);
-                    ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),imageView, IssApplication.getImageLoaderOption());
-                    if(IssApplication.isShowDiscount){
-                        helper.setText(R.id.price_tv,"￥" +item.getCost_price());
-                    }else {
-                        helper.setText(R.id.price_tv,"￥" +item.getShop_price());
-                    }
-                    helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
+
+                    View view_single=helper.getView(R.id.view_single);
+                    View view_double=helper.getView(R.id.view_double);
+                    if(gv_category.getNumColumns()!=1){
+                        view_double.setVisibility(View.VISIBLE);
+                        view_single.setVisibility(View.GONE);
+                        helper.setText(R.id.name_tv,item.getGoods_name());
+                        ImageView imageView=helper.getView(R.id.imageView);
+                        ImageLoader.getInstance().loadImage(NetWorkConst.IMAGE_URL + item.getGoods_id(), new ImageLoadingListener() {
+                            @Override
+                            public void onLoadingStarted(String s, View view) {
+
+                            }
+
+                            @Override
+                            public void onLoadingFailed(String s, View view, FailReason failReason) {
+
+                            }
+
+                            @Override
+                            public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+
+                                imageView.setImageBitmap(bitmap);
+                            }
+
+                            @Override
+                            public void onLoadingCancelled(String s, View view) {
+
+                            }
+                        });
+                        if(IssApplication.isShowDiscount){
+                            helper.setVisible(R.id.ll_1,false);
+                            helper.setVisible(R.id.ll_2,true);
+                            helper.setText(R.id.tv_shop_price,"市场价：￥" +item.getShop_price());
+                            helper.setText(R.id.tv_cost_price,"代理价：￥" +item.getCost_price());
+                            helper.setText(R.id.tv_sold_2,"已售"+item.getSales_sum()+"件");
+                        }else {
+                            helper.setVisible(R.id.ll_1,true);
+                            helper.setVisible(R.id.ll_2,false);
+                            helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                            helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
+                        }
 
 
-                }
-            };
-        }else {
-            adapter = new QuickAdapter<GoodsBean>(this, R.layout.item_gridview_fm_product_single) {
-                @Override
-                protected void convert(BaseAdapterHelper helper, GoodsBean item) {
-                    helper.setText(R.id.name_tv,item.getGoods_name());
-                    ImageView imageView=helper.getView(R.id.imageView);
-                    ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),imageView, IssApplication.getImageLoaderOption());
-                    if(IssApplication.isShowDiscount){
-                        helper.setText(R.id.price_tv,"￥" +item.getCost_price());
                     }else {
-                        helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+                        view_double.setVisibility(View.GONE);
+                        view_single.setVisibility(View.VISIBLE);
+                        helper.setText(R.id.name_tv2,item.getGoods_name());
+                        ImageView imageView=helper.getView(R.id.imageView2);
+                        ImageLoader.getInstance().loadImage(NetWorkConst.IMAGE_URL + item.getGoods_id(), new ImageLoadingListener() {
+                            @Override
+                            public void onLoadingStarted(String s, View view) {
+
+                            }
+
+                            @Override
+                            public void onLoadingFailed(String s, View view, FailReason failReason) {
+
+                            }
+
+                            @Override
+                            public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+
+                                imageView.setImageBitmap(bitmap);
+                            }
+
+                            @Override
+                            public void onLoadingCancelled(String s, View view) {
+
+                            }
+                        });
+                        if(IssApplication.isShowDiscount){
+                            helper.setText(R.id.old_price_tv2,"市场价：￥"+item.getShop_price());
+                            helper.setText(R.id.price_tv2,"代理价：￥" +item.getCost_price());
+                        }else {
+                            helper.setText(R.id.price_tv2,"￥" +item.getShop_price());
+                        }
+                        helper.setText(R.id.tv_sold2,"已售"+item.getSales_sum()+"件");
                     }
-                    helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
                 }
             };
-        }
+//            adapter = new QuickAdapter<GoodsBean>(this, R.layout.item_gridview_fm_product_single) {
+//                @Override
+//                protected void convert(BaseAdapterHelper helper, GoodsBean item) {
+//                    helper.setText(R.id.name_tv,item.getGoods_name());
+//                    ImageView imageView=helper.getView(R.id.imageView);
+////                    ImageLoader.getInstance().displayImage(NetWorkConst.IMAGE_URL+item.getGoods_id(),imageView, IssApplication.getImageLoaderOption());
+//                    ImageLoader.getInstance().loadImage(NetWorkConst.IMAGE_URL + item.getGoods_id(), new ImageLoadingListener() {
+//                        @Override
+//                        public void onLoadingStarted(String s, View view) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onLoadingFailed(String s, View view, FailReason failReason) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+//
+//                            imageView.setImageBitmap(bitmap);
+//                        }
+//
+//                        @Override
+//                        public void onLoadingCancelled(String s, View view) {
+//
+//                        }
+//                    });
+//                    if(IssApplication.isShowDiscount){
+//                        helper.setText(R.id.old_price_tv,"市场价：￥"+item.getShop_price());
+//                        helper.setText(R.id.price_tv,"代理价：￥" +item.getCost_price());
+//                    }else {
+//                        helper.setText(R.id.price_tv,"￥" +item.getShop_price());
+//                    }
+//                    helper.setText(R.id.tv_sold,"已售"+item.getSales_sum()+"件");
+//                }
+//            };
     }
 
     @OnClick(R.id.rl_change_mode)
@@ -227,8 +318,8 @@ public class CategoryGoodsListActivity extends BaseActivity implements SwipeRefr
                     gv_category.setNumColumns(2);
                     iv_mode_2.setBackgroundResource(R.mipmap.nav_icon_transverse);
                 }
-                initAdapter();
-                gv_category.setAdapter(adapter);
+//                initAdapter();
+//                gv_category.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 break;
         }

@@ -22,7 +22,7 @@
 
         </RelativeLayout>
         <TextView
-            android:text="申请城市经销商"
+            android:text="申请城市合伙人"
             android:textSize="18sp"
             android:textColor="#444444"
             android:layout_centerInParent="true"

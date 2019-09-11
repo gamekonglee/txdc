@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<bc.yxdc.com.ui.view.DrawerExatlyLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<bc.yxdc.com.ui.view.DrawerExatlyLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:id="@+id/drawerlayout"-->
+    <!--android:background="#efefef"-->
+    <!--android:focusable="true"-->
+    <!--android:focusableInTouchMode="true"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--&gt;-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerlayout"
     android:background="#efefef"
     android:focusable="true"
     android:focusableInTouchMode="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+    <bc.yxdc.com.ui.view.PMSwipeRefreshLayout
+        android:id="@+id/pulltorefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <bc.yxdc.com.view.ObservableScrollView
     android:scrollbars="none"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -65,7 +78,7 @@
                 android:id="@+id/tv_tail"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:text="尾货特卖"
+                android:text="现货特卖"
                 android:drawableTop="@mipmap/icon_sale_default"
                 app:top_width="45dp"
                 app:top_height="45dp"
@@ -335,7 +348,7 @@
 
     </LinearLayout>
 </bc.yxdc.com.view.ObservableScrollView>
-
+    </bc.yxdc.com.ui.view.PMSwipeRefreshLayout>
     <RelativeLayout
         android:id="@+id/rl_home_top"
         android:layout_width="match_parent"
@@ -449,5 +462,6 @@
         </LinearLayout>
 
     </RelativeLayout>
-</bc.yxdc.com.ui.view.DrawerExatlyLayout>
+</RelativeLayout>
+<!--</bc.yxdc.com.ui.view.DrawerExatlyLayout>-->
 

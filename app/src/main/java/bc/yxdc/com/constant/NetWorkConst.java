@@ -86,4 +86,5 @@ public class NetWorkConst {
     public static final String URL_WX_USER_INFO = "https://api.weixin.qq.com/sns/userinfo?";
     public static final String SHARE_APK_URL = "https://sj.qq.com/myapp/detail.htm?apkName=app.txdc.shop";
     public static final String URL_DISTRUBUTOR = API_HOST + "/api/user/reg_distributor";
+    public static final String URL_SPOTGOODS_LIST = API_HOST + "/api/goods/spot_goods";
 }
