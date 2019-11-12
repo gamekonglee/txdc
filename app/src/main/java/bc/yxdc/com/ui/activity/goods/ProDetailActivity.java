@@ -40,6 +40,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -264,8 +266,23 @@ public class ProDetailActivity extends BaseActivity implements ViewPager.OnPageC
 //                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 //                   startService(new Intent(this, MyChatService.class));
 //                    }
+                    String icon=NetWorkConst.IMAGE_URL+ProDetailActivity.goods.getGoods().getGoods_id();
+                    LogUtils.logE("icon",icon);
+                    String goodsName=goods.getGoods().getGoods_name();
+                    LogUtils.logE("goodsName",goodsName);
+                    String price="¥"+goods.getGoods().getShop_price();
+                    LogUtils.logE("price",price);
+                    String content=goods.getSpec_goods_price().get(IntroduceGoodsFragment.currentAttrPosi).getKey_name();
+                    LogUtils.logE("content",content);
+                    String url="http://www.tianxiadengcang.com/Mobile/Goods/goodsInfo/id/"+goods.getGoods().getGoods_id()+".html";
+                    LogUtils.logE("url",url);
+                    CardInfo ci = null;
+                    try {
+                        ci = new CardInfo(URLEncoder.encode(icon,"utf-8") ,URLEncoder.encode(goodsName ,"utf-8"),URLEncoder.encode(price,"utf-8" ),URLEncoder.encode(content,"utf-8"), URLEncoder.encode(url,"utf-8"));
 
-                    CardInfo ci = new CardInfo(NetWorkConst.IMAGE_URL+ProDetailActivity.goods.getGoods().getGoods_id(), goods.getGoods().getGoods_name(), "¥"+goods.getGoods().getShop_price(),goods.getSpec_goods_price().get(IntroduceGoodsFragment.currentAttrPosi).getKey_name(), "http://www.tianxiadengcang.com/Mobile/Goods/goodsInfo/id/"+goods.getGoods().getGoods_id()+".html");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
                     final KfStartHelper helper = new KfStartHelper(ProDetailActivity.this);
                     User user=new Gson().fromJson(IssApplication.mUserBean,User.class);
                     helper.setCard(ci);

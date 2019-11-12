@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.pgyersdk:sdk:2.8.0@aar">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/10b75f6672de185070cf155a8dceba79/res" />
-      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/10b75f6672de185070cf155a8dceba79/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/a602f7e6457ee7cf7f587c64ec8834bd/res" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/a602f7e6457ee7cf7f587c64ec8834bd/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

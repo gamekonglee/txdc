@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.bigkoo:convenientbanner:1.1.4@aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/094d35d98cf63359e41258d3f4c66ba9/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/094d35d98cf63359e41258d3f4c66ba9/res" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/b9e2f043e3f05b77a111010d2b13ad1b/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/b9e2f043e3f05b77a111010d2b13ad1b/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

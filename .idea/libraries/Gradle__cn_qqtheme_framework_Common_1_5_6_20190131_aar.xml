@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: cn.qqtheme.framework:Common:1.5.6.20190131@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/0900e933146af144dd3cedecac636b90/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/b23f1f508cd064d1b1350ccfc3729e74/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/0900e933146af144dd3cedecac636b90/res" />
-      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/0900e933146af144dd3cedecac636b90/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/b23f1f508cd064d1b1350ccfc3729e74/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../gradle-5.1.1-all/gradle-5.1.1/bin/caches/transforms-2/files-2.1/b23f1f508cd064d1b1350ccfc3729e74/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

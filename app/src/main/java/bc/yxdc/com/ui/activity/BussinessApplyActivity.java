@@ -26,8 +26,11 @@ import bc.yxdc.com.base.BaseActivity;
 import bc.yxdc.com.constant.Constance;
 import bc.yxdc.com.net.OkHttpUtils;
 import bc.yxdc.com.ui.activity.home.MainActivity;
+import bc.yxdc.com.utils.DateUtils;
 import bc.yxdc.com.utils.MyShare;
 import bc.yxdc.com.utils.MyToast;
+import bc.yxdc.com.utils.ScannerUtils;
+import bc.yxdc.com.utils.UIUtils;
 import bocang.json.JSONArray;
 import bocang.json.JSONObject;
 import okhttp3.Call;
@@ -151,6 +154,7 @@ public class BussinessApplyActivity extends BaseActivity {
     }
 
     private void selectAddress() {
+        ScannerUtils
         RegionSelectDialog dialog=new RegionSelectDialog(this, RegionLevel.LEVEL_THREE);
         dialog.setProvinceData(provinceList);
         dialog.setOnRegionDataSetListenr(new OnRegionDataSetListener() {

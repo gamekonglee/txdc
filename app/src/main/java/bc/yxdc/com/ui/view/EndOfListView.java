@@ -82,10 +82,11 @@ public class EndOfListView extends ListView {
     public void setOnCanRefreshListener(OnCanRefreshListener onCanRefreshListener){
     this.onCanRefreshListener=onCanRefreshListener;
     }
-    public static interface OnEndOfListListener<T> {
-        void onEndOfList(T lastItem);
-    }
     public static interface  OnCanRefreshListener<T>{
         void canRefresh(boolean refesh);
     }
+    public static interface OnEndOfListListener<T> {
+        void onEndOfList(T lastItem);
+    }
+
 }
